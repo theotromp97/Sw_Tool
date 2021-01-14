@@ -19,7 +19,7 @@ namespace sPIke.SolidWorks.Standalone
         {
             if (GUI.pthProjFolder != "")
             {
-                //sets the directory from which a list must be made
+                //sets the directory from which a list must be made ;;;
                 //Makes that array of directories
                 DirectoryInfo dirProjects = new DirectoryInfo(GUI.pthProjFolder);
                 DirectoryInfo[] folProjects = dirProjects.GetDirectories().OrderBy(p => p.Name).ToArray();
