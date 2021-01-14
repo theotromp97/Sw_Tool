@@ -80,6 +80,7 @@
     <Compile Include="CreatePart.Designer.cs">
       <DependentUpon>CreatePart.cs</DependentUpon>
     </Compile>
+    <Compile Include="ErrorHandler.cs" />
     <Compile Include="FileManager.cs" />
     <Compile Include="FormManager.cs" />
     <Compile Include="GUI.cs">
