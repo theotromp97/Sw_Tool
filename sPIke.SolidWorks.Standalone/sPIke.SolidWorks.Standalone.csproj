@@ -67,25 +67,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassManager.cs" />
-    <Compile Include="CreateAssembly.cs">
+    <Compile Include="Managers\ClassManager.cs" />
+    <Compile Include="Forms\CreateAssembly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreateAssembly.Designer.cs">
+    <Compile Include="Forms\CreateAssembly.Designer.cs">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreatePart.cs">
+    <Compile Include="Forms\CreatePart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CreatePart.Designer.cs">
+    <Compile Include="Forms\CreatePart.Designer.cs">
       <DependentUpon>CreatePart.cs</DependentUpon>
     </Compile>
-    <Compile Include="FileManager.cs" />
-    <Compile Include="FormManager.cs" />
-    <Compile Include="GUI.cs">
+    <Compile Include="Managers\ErrorHandler.cs" />
+    <Compile Include="Managers\FileManager.cs" />
+    <Compile Include="Managers\FormManager.cs" />
+    <Compile Include="Forms\GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI.Designer.cs">
+    <Compile Include="Forms\GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIcode.cs" />
@@ -95,13 +96,13 @@
     <Compile Include="SolidWorksCreation.cs" />
     <Compile Include="SolidWorksManager.cs" />
     <Compile Include="SolidWorksSingleton.cs" />
-    <EmbeddedResource Include="CreateAssembly.resx">
+    <EmbeddedResource Include="Forms\CreateAssembly.resx">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CreatePart.resx">
+    <EmbeddedResource Include="Forms\CreatePart.resx">
       <DependentUpon>CreatePart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI.resx">
+    <EmbeddedResource Include="Forms\GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
