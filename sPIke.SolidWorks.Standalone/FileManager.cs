@@ -11,20 +11,7 @@ namespace sPIke.SolidWorks.Standalone
     {
         public ClassManager classManager;
         public object[] folstucProjects;
-
-        /// <summary>
-        /// All different paths to files in the windows explorer
-        /// </summary>
         
-        public string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
-        public string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
-        public string pthProjFol;
-        public string pthPRTTempl;
-        public string pthASMTempl;
-        public string pthDRWVendorTempl;
-        public string pthDRWModiVendorTempl;
-        public string pthDRWManufacTempl;
-
         public FileManager(ClassManager classMngr)
         {
             classManager = classMngr;
@@ -32,11 +19,12 @@ namespace sPIke.SolidWorks.Standalone
 
         void pthHandler()
         {
-            pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
-            pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
-            pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
-            pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
-            pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
+            public string pthProjFol;
+            public string pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
+            public string pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
+            public string pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
+            public string pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
+            public string pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
     }
 
         public string[] GetFiles(string path, string fileType)
@@ -66,6 +54,9 @@ namespace sPIke.SolidWorks.Standalone
 
         public void loadProjectListGoogle()
         {
+            string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
+            string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
+
             if (Directory.Exists(pthNLGoogle))
             {
                 errorMessageHandling(4);
