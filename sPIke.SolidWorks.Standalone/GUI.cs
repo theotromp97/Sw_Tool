@@ -8,7 +8,6 @@ namespace sPIke.SolidWorks.Standalone
 {
     public partial class GUI : Form
     {
-
         public static string pthProjFolder;
         public static string AuthorName;
         public static string GUIProj;
