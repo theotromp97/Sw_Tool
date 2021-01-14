@@ -13,21 +13,41 @@ namespace sPIke.SolidWorks.Standalone
         public GUI gui;
         public CreatePart formCreatePart;
         public CreateAssembly formCreateAssembly;
-        public FormManager(ClassManager manager)
+        public FormManager(ClassManager _classManager)
         {
-            classManager = manager;
+            // reference to classmanager
+            classManager = _classManager;
             gui = new GUI(this);
-        }
-
-        public void show(Form f)
-        {
-            f.Show();
         }
 
         public void InitFormManager()
         {
+            // initialize formManager --> this function is called in classManager.Init()
+
+            // Creates instances of creation forms
             formCreatePart = new CreatePart(this);
             formCreateAssembly = new CreateAssembly(this);
         }
+
+        public void show(Form form)
+        {
+            // shows the form in the parameter.
+            form.Show();
+        }
+
+        public void Close(Form form)
+        {
+            try
+            {
+                // shows the form in the parameter.
+                form.Show();
+            }
+            catch
+            {
+
+            }
+        }
+
+
     }
 }
