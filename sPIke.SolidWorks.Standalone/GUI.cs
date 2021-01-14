@@ -8,6 +8,7 @@ namespace sPIke.SolidWorks.Standalone
 {
     public partial class GUI : Form
     {
+        public FormManager formManager;
         public static string pthProjFolder;
         public static string AuthorName;
         public static string GUIProj;
@@ -18,8 +19,9 @@ namespace sPIke.SolidWorks.Standalone
 
         public static FileInfo projFiles;
 
-        public GUI(FormManager formManager)
+        public GUI(FormManager _formManager)
         {
+            formManager = _formManager;
             InitializeComponent();
 
             string[] extensions = new string[] { "PDF" ,"SLDPRT", "SLDASM", "STEP", "STL" };
@@ -56,7 +58,8 @@ namespace sPIke.SolidWorks.Standalone
 
         private void sWPartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CreatePart partCreation = new CreatePart();
+            formManager.show(formManager.formCreatePart);
+            //CreatePart partCreation = new CreatePart();
 
             if (GUI.GUIProj != null)
             {

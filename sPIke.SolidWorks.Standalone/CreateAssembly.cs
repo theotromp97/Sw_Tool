@@ -12,13 +12,15 @@ namespace sPIke.SolidWorks.Standalone
 {
     public partial class CreateAssembly : Form
     {
+        public FormManager formManager;
         public static string txtAuthor;
         public static string txtAssyName;
         public static string choforProject;
         public static string choforAssyType;
 
-        public CreateAssembly()
+        public CreateAssembly(FormManager _formManager)
         {
+            formManager = _formManager;
             InitializeComponent();
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace sPIke.SolidWorks.Standalone
 {
@@ -10,23 +11,23 @@ namespace sPIke.SolidWorks.Standalone
     {
         public ClassManager classManager;
         public GUI gui;
-        private CreatePart formCreatePart;
-        private CreateAssembly formCreateAssembly;
+        public CreatePart formCreatePart;
+        public CreateAssembly formCreateAssembly;
         public FormManager(ClassManager manager)
         {
             classManager = manager;
             gui = new GUI(this);
         }
 
-        public void Open_CreatePart()
+        public void show(Form f)
+        {
+            f.Show();
+        }
+
+        public void InitFormManager()
         {
             formCreatePart = new CreatePart(this);
-            formCreatePart.Show();
-        }
-        public void Open_CreateAssembly()
-        {
             formCreateAssembly = new CreateAssembly(this);
-            formCreateAssembly.Show();
         }
     }
 }

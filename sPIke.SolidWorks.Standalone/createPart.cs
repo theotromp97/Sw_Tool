@@ -8,6 +8,8 @@ namespace sPIke.SolidWorks.Standalone
     public partial class CreatePart : Form
     {
 
+        public FormManager formManager;
+
         public static string choforProject;
         public static string choforItemType;
         public static string pthfileName;
@@ -22,11 +24,13 @@ namespace sPIke.SolidWorks.Standalone
         public static int exisCheck;
        
 
-        public CreatePart()
+        public CreatePart(FormManager _formManager)
         {
+            formManager = _formManager;
             InitializeComponent();
-
         }
+
+
         private void createPart_Load(object sender, EventArgs e)
         {
             GUIcode.createProjectList();

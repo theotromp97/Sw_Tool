@@ -18,14 +18,15 @@ namespace sPIke.SolidWorks.Standalone
             swManager = new SolidworksManager(this);
             fileManager = new FileManager(this);
             formManager = new FormManager(this);
+
+
+
+            InitClasses();
         }
 
         private void InitClasses()
         {
-            // todo: initialize in seperate thread
-
-            //swManager.Init();
-
+            formManager.InitFormManager();
         }
         public void Run()
         {
