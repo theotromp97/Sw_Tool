@@ -14,12 +14,13 @@ namespace sPIke.SolidWorks.Standalone
         public FormManager formManager;
         public ClassManager(Main _mainRef)
         {
+            // reference to main class
             mainRef = _mainRef;
             swManager = new SolidworksManager(this);
             fileManager = new FileManager(this);
             formManager = new FormManager(this);
 
-
+            // initialize classes
 
             InitClasses();
         }
