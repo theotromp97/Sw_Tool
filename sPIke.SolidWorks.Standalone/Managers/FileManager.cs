@@ -12,15 +12,32 @@ namespace sPIke.SolidWorks.Standalone
         public ClassManager classManager;
         public object[] folstucProjects;
 
-        //All different paths to files in the windows explorer
+        /// <summary>
+        /// All different paths to files in the windows explorer
+        /// </summary>
+        
         public string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
         public string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
-        public static string pthProjFol;
+        public string pthProjFol;
+        public string pthPRTTempl;
+        public string pthASMTempl;
+        public string pthDRWVendorTempl;
+        public string pthDRWModiVendorTempl;
+        public string pthDRWManufacTempl;
 
         public FileManager(ClassManager classMngr)
         {
             classManager = classMngr;
         }
+
+        void pthHandler()
+        {
+            pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
+            pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
+            pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
+            pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
+            pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
+    }
 
         public string[] GetFiles(string path, string fileType)
         {
@@ -47,25 +64,23 @@ namespace sPIke.SolidWorks.Standalone
             return folProjects;
         }
 
-        public static void loadProjectListGoogle()
+        public void loadProjectListGoogle()
         {
             if (Directory.Exists(pthNLGoogle))
             {
-                errorMessageHanding(4);
+                errorMessageHandling(4);
                 pthProjFol = pthNLGoogle;
-                pthSaveLoc = pthNLGoogle;
                 createProjectList();
             }
             else if (Directory.Exists(pthENGoogle))
             {
                 errorMessageHanding(4);
                 pthProjFol = pthENGoogle;
-                pthSaveLoc = pthENGoogle;
                 createProjectList();
             }
             else
             {
-                errorMessageHanding(5);
+                errorMessageHandling(5);
             }
         }
     }

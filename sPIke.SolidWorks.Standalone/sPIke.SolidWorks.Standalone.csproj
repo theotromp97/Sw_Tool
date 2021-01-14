@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="SolidWorks.Interop.sldworks">
-      <HintPath>..\..\..\..\..\..\..\..\SolidWorks\SolidWorks_2020_2021\SOLIDWORKS\SolidWorks.Interop.sldworks.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\SOLIDWORKS Corp\SOLIDWORKS\api\redist\SolidWorks.Interop.sldworks.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swcommands">
@@ -42,7 +42,7 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swconst">
-      <HintPath>..\..\..\..\..\..\..\..\SolidWorks\SolidWorks_2020_2021\SOLIDWORKS\SolidWorks.Interop.swconst.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\..\Program Files\SOLIDWORKS Corp\SOLIDWORKS\api\redist\SolidWorks.Interop.swconst.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="SolidWorks.Interop.swdocumentmgr">
@@ -67,26 +67,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Managers\ClassManager.cs" />
-    <Compile Include="Forms\CreateAssembly.cs">
+    <Compile Include="ClassManager.cs" />
+    <Compile Include="CreateAssembly.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CreateAssembly.Designer.cs">
+    <Compile Include="CreateAssembly.Designer.cs">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CreatePart.cs">
+    <Compile Include="CreatePart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CreatePart.Designer.cs">
+    <Compile Include="CreatePart.Designer.cs">
       <DependentUpon>CreatePart.cs</DependentUpon>
     </Compile>
-    <Compile Include="Managers\ErrorHandler.cs" />
-    <Compile Include="Managers\FileManager.cs" />
-    <Compile Include="Managers\FormManager.cs" />
-    <Compile Include="Forms\GUI.cs">
+    <Compile Include="FileManager.cs" />
+    <Compile Include="FormManager.cs" />
+    <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GUI.Designer.cs">
+    <Compile Include="GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIcode.cs" />
@@ -95,14 +94,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolidWorksCreation.cs" />
     <Compile Include="SolidWorksManager.cs" />
-    <Compile Include="SolidWorksSingleton.cs" />
-    <EmbeddedResource Include="Forms\CreateAssembly.resx">
+    <EmbeddedResource Include="CreateAssembly.resx">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CreatePart.resx">
+    <EmbeddedResource Include="CreatePart.resx">
       <DependentUpon>CreatePart.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GUI.resx">
+    <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
