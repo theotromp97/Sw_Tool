@@ -39,10 +39,10 @@ namespace sPIke.SolidWorks.Standalone
         {
             swApp = SolidWorksSingleton.swApp;
 
-            if (createPart.exisCheck == 1)
+            if (CreatePart.exisCheck == 1)
             {
                 //Open existing part
-                swApp.OpenDoc6(createPart.pthfileName, 1, 256, "", 0, 0);
+                swApp.OpenDoc6(CreatePart.pthfileName, 1, 256, "", 0, 0);
             }
             else
             {
@@ -126,16 +126,16 @@ namespace sPIke.SolidWorks.Standalone
                 }
                 else
                 {
-                    dirSaveName = GUIcode.pthSaveLoc + "/" + createPart.choforProject + "/";
+                    dirSaveName = GUIcode.pthSaveLoc + "/" + CreatePart.choforProject + "/";
 
-                    if (createPart.choforItemType == "Vendor")
+                    if (CreatePart.choforItemType == "Vendor")
                     {
-                        if (createPart.modifiedCheck == 1)
+                        if (CreatePart.modifiedCheck == 1)
                         {
                             PartNumber = prefixPartNumber + "-" + suffixPartNumber + "-MV";
                             saveName = dirSaveName + PartNumber + ".sldprt";
                         }
-                        else if (createPart.modifiedCheck == 2)
+                        else if (CreatePart.modifiedCheck == 2)
                         {
                             PartNumber = prefixPartNumber + "-" + suffixPartNumber + "-V";
                             saveName = dirSaveName + PartNumber + ".sldprt";
@@ -170,16 +170,16 @@ namespace sPIke.SolidWorks.Standalone
         public static void createPrefixPartNumber()
         {
 
-            if (createPart.choforProject == null & CreateAssembly.choforProject == null)
+            if (CreatePart.choforProject == null & CreateAssembly.choforProject == null)
             {
                 //give error if no item type is chosen by the user
                 prefixPartNumber = "ERROR";
             }
             //Checks if the item type is either manufactured, vendor or null
-            else if (createPart.choforProject != null || CreateAssembly.choforProject == null)
+            else if (CreatePart.choforProject != null || CreateAssembly.choforProject == null)
             {
                 //gets the variable at another class
-                choProject = createPart.choforProject;
+                choProject = CreatePart.choforProject;
 
                 if (choProject == ".grabcad")
                 {
@@ -191,7 +191,7 @@ namespace sPIke.SolidWorks.Standalone
                     prefixPartNumber = choProject.Substring(choProject.Length - 3, 3);
                 }
             }
-            else if (createPart.choforProject == null || CreateAssembly.choforProject != null)
+            else if (CreatePart.choforProject == null || CreateAssembly.choforProject != null)
             {
                 //gets the variable at another class
                 choProject = CreateAssembly.choforProject;
@@ -263,27 +263,27 @@ namespace sPIke.SolidWorks.Standalone
             //set the author name
             swModel.SummaryInfo[2] = GUI.AuthorName;
 
-            if (createPart.choforItemType == "Vendor")
+            if (CreatePart.choforItemType == "Vendor")
             {
-                if (createPart.exisCheck == 1)
+                if (CreatePart.exisCheck == 1)
                 {
                     //create different custom properties that are assigned to the document
-                    CusProMan.Add3("Vendor SKU", 30, createPart.txtVenSKU, 2);
-                    CusProMan.Add3("Vendor Name", 30, createPart.txtVendor, 2);
-                    CusProMan.Add3("Vendor Costs", 30, createPart.txtVenCost, 2);
+                    CusProMan.Add3("Vendor SKU", 30, CreatePart.txtVenSKU, 2);
+                    CusProMan.Add3("Vendor Name", 30, CreatePart.txtVendor, 2);
+                    CusProMan.Add3("Vendor Costs", 30, CreatePart.txtVenCost, 2);
                 }
                 else
                 {
-                    swModel.SummaryInfo[0] = createPart.txtVenName;
-                    CusProMan.Add3("Vendor SKU", 30, createPart.txtVenSKU, 2);
-                    CusProMan.Add3("Vendor Name", 30, createPart.txtVendor, 0);
-                    CusProMan.Add3("Vendor Costs", 30, createPart.txtVenCost, 2);
+                    swModel.SummaryInfo[0] = CreatePart.txtVenName;
+                    CusProMan.Add3("Vendor SKU", 30, CreatePart.txtVenSKU, 2);
+                    CusProMan.Add3("Vendor Name", 30, CreatePart.txtVendor, 0);
+                    CusProMan.Add3("Vendor Costs", 30, CreatePart.txtVenCost, 2);
                 }
             }
             else
             {
                 //set the name of the part
-                swModel.SummaryInfo[0] = createPart.txtManName;
+                swModel.SummaryInfo[0] = CreatePart.txtManName;
             }
         }
 

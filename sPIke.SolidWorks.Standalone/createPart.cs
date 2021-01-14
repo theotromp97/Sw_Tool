@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace sPIke.SolidWorks.Standalone
 {
-    public partial class createPart : Form
+    public partial class CreatePart : Form
     {
 
         public static string choforProject;
@@ -22,7 +22,7 @@ namespace sPIke.SolidWorks.Standalone
         public static int exisCheck;
        
 
-        public createPart()
+        public CreatePart()
         {
             InitializeComponent();
 

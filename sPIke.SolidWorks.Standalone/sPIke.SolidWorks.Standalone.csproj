@@ -67,18 +67,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassManager.cs" />
     <Compile Include="CreateAssembly.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CreateAssembly.Designer.cs">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </Compile>
-    <Compile Include="createPart.cs">
+    <Compile Include="CreatePart.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="createPart.Designer.cs">
-      <DependentUpon>createPart.cs</DependentUpon>
+    <Compile Include="CreatePart.Designer.cs">
+      <DependentUpon>CreatePart.cs</DependentUpon>
     </Compile>
+    <Compile Include="FileManager.cs" />
+    <Compile Include="FormManager.cs" />
     <Compile Include="GUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,8 +97,8 @@
     <EmbeddedResource Include="CreateAssembly.resx">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="createPart.resx">
-      <DependentUpon>createPart.cs</DependentUpon>
+    <EmbeddedResource Include="CreatePart.resx">
+      <DependentUpon>CreatePart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI.resx">
       <DependentUpon>GUI.cs</DependentUpon>

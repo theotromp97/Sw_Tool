@@ -1,6 +1,6 @@
 ﻿namespace sPIke.SolidWorks.Standalone
 {
-    partial class createPart
+    partial class CreatePart
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(createPart));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreatePart));
             this.ssLabelHelper = new System.Windows.Forms.StatusStrip();
             this.tsslHelper = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnCreatePart = new System.Windows.Forms.Button();

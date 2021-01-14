@@ -19,7 +19,7 @@ namespace sPIke.SolidWorks.Standalone
 
         public static FileInfo projFiles;
 
-        public GUI()
+        public GUI(FormManager formManager)
         {
             InitializeComponent();
 
@@ -57,7 +57,7 @@ namespace sPIke.SolidWorks.Standalone
 
         private void sWPartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            createPart partCreation = new createPart();
+            CreatePart partCreation = new CreatePart();
 
             if (GUI.GUIProj != null)
             {
