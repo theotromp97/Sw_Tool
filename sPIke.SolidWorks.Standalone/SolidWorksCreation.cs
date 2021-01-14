@@ -32,7 +32,7 @@ namespace sPIke.SolidWorks.Standalone
         public static string pthPartAssytoOpen;
 
         /// <summary>
-        /// The main code of the SW part creation
+        /// The main code of the SW part creation and the rest
         /// </summary>
 
         public static void createSWPart()
