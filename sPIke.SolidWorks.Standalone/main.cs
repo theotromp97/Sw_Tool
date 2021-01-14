@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace sPIke.SolidWorks.Standalone
 {
-    class main
+    public class Main
     {
+        public ClassManager classManager;
+        public Main()
+        {
+            classManager = new ClassManager(this);
+        }
+
+        public void Start()
+        {
+            Application.Run(classManager.formManager.gui);
+        }
     }
 }
