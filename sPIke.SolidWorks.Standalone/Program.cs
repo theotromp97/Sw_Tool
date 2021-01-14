@@ -16,7 +16,8 @@ namespace sPIke.SolidWorks.Standalone
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GUI());
+            Main main = new Main();
+            main.Start();
         }
     }
 }
