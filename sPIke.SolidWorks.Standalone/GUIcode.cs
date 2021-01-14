@@ -10,8 +10,7 @@ namespace sPIke.SolidWorks.Standalone
 {
     class GUIcode
     {
-        public static string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
-        public static string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
+        
         public static string pthSaveLoc;
         public static object[] folstucProjects;
 
@@ -62,26 +61,6 @@ namespace sPIke.SolidWorks.Standalone
             }
         }
 
-        public static void loadProjectListGoogle()
-        {
-            if (Directory.Exists(pthNLGoogle))
-            {
-                errorMessageHanding(4);
-                GUI.pthProjFolder = pthNLGoogle;
-                pthSaveLoc = pthNLGoogle;
-                createProjectList();
-            }
-            else if (Directory.Exists(pthENGoogle))
-            {
-                errorMessageHanding(4);
-                GUI.pthProjFolder = pthENGoogle;
-                pthSaveLoc = pthENGoogle;
-                createProjectList();
-            }
-            else
-            {
-                errorMessageHanding(5);
-            }
-        }
+        
     }
 }

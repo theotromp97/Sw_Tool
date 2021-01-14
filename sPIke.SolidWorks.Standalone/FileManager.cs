@@ -11,6 +11,12 @@ namespace sPIke.SolidWorks.Standalone
     {
         public ClassManager classManager;
         public object[] folstucProjects;
+
+        //All different paths to files in the windows explorer
+        public string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
+        public string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
+        public static string pthProjFol;
+
         public FileManager(ClassManager classMngr)
         {
             classManager = classMngr;
@@ -39,6 +45,28 @@ namespace sPIke.SolidWorks.Standalone
 
             //Make the list an object that can be read by another class
             return folProjects;
+        }
+
+        public static void loadProjectListGoogle()
+        {
+            if (Directory.Exists(pthNLGoogle))
+            {
+                errorMessageHanding(4);
+                pthProjFol = pthNLGoogle;
+                pthSaveLoc = pthNLGoogle;
+                createProjectList();
+            }
+            else if (Directory.Exists(pthENGoogle))
+            {
+                errorMessageHanding(4);
+                pthProjFol = pthENGoogle;
+                pthSaveLoc = pthENGoogle;
+                createProjectList();
+            }
+            else
+            {
+                errorMessageHanding(5);
+            }
         }
     }
 }
