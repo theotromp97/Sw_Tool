@@ -130,5 +130,9 @@
   <ItemGroup>
     <None Include="Resources\Red digital logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SolidWorks.Interop.sldworks.dll" />
+    <Content Include="Resources\SolidWorks.Interop.swconst.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
