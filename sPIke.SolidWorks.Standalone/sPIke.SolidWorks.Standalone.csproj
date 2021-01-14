@@ -93,6 +93,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SolidWorksCreation.cs" />
+    <Compile Include="SolidWorksManager.cs" />
     <Compile Include="SolidWorksSingleton.cs" />
     <EmbeddedResource Include="CreateAssembly.resx">
       <DependentUpon>CreateAssembly.cs</DependentUpon>
