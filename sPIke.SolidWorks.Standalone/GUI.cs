@@ -58,12 +58,10 @@ namespace sPIke.SolidWorks.Standalone
 
         private void sWPartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formManager.show(formManager.formCreatePart);
-            //CreatePart partCreation = new CreatePart();
 
             if (GUI.GUIProj != null)
             {
-                partCreation.Show();
+                formManager.show(formManager.formCreatePart);
             }
             else if (swApp == null)
             {
@@ -80,12 +78,10 @@ namespace sPIke.SolidWorks.Standalone
         }
 
         private void sWAssemblyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateAssembly assemblyCreation = new CreateAssembly();
-                        
+        {                        
             if (GUI.GUIProj != null)
             {
-                assemblyCreation.Show();
+                formManager.show(formManager.formCreateAssembly);
             }
             else if (swApp == null)
             {
@@ -103,25 +99,24 @@ namespace sPIke.SolidWorks.Standalone
 
         private async void startInstanceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            swApp = await SolidWorksSingleton.getApplication();
+            await formManager.classManager.swManager.OpenSolidWorks();
         }
 
         private void exitInstanceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            SolidWorksSingleton.Dispose();
-            swApp = SolidWorksSingleton.swApp;
+            formManager.classManager.swManager.CloseSolidWorks();
         }
 
         private void projectFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             projectfolderBrowsingDialog.ShowDialog();
-            pthProjFolder = projectfolderBrowsingDialog.SelectedPath;
+            pthProjFolder = projectfolderBrowsingDialog.SelectedPath + "/";
 
-            GUIcode.createProjectList();
 
-            GUIProjList.DataSource = GUIcode.folstucProjects;
 
-            showProjectFiles("*." + ccbxExtensions.SelectedItem);
+            GUIProjList.DataSource = formManager.classManager.fileManager.createProjectList();
+
+            showProjectFiles();
         }
 
         private void showProjectFiles(string fileType)
