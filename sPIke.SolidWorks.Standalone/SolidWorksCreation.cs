@@ -37,7 +37,7 @@ namespace sPIke.SolidWorks.Standalone
 
         public static void createSWPart()
         {
-            swApp = SolidWorksSingleton.swApp;
+            //swApp = SolidWorksSingleton.swApp;
 
             if (CreatePart.exisCheck == 1)
             {
@@ -63,7 +63,7 @@ namespace sPIke.SolidWorks.Standalone
 
         public static void createSWAssembly()
         {
-            swApp = SolidWorksSingleton.swApp;
+           // swApp = SolidWorksSingleton.swApp;
 
             //create a assembly
             swAssy = swApp.INewAssembly();
@@ -81,7 +81,7 @@ namespace sPIke.SolidWorks.Standalone
 
         public static void createSWDrawing(bool createDrawBool)
         {
-            swApp = SolidWorksSingleton.swApp;
+            //swApp = SolidWorksSingleton.swApp;
             string pthTemplateFolder = GUI.pthProjFolder + "\\" + "Ξ_SolidWorks Standard Library" + "\\" + "Templates" + "\\" + "RTPi DRW.DRWDOT";
             pthPartAssytoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen;
 
@@ -126,7 +126,7 @@ namespace sPIke.SolidWorks.Standalone
                 }
                 else
                 {
-                    dirSaveName = GUIcode.pthSaveLoc + "/" + CreatePart.choforProject + "/";
+                    //dirSaveName = GUIcode.pthSaveLoc + "/" + CreatePart.choforProject + "/";
 
                     if (CreatePart.choforItemType == "Vendor")
                     {
@@ -317,10 +317,9 @@ namespace sPIke.SolidWorks.Standalone
         /// <summary>
         /// Open documents
         /// </summary>
-
         public static void openPartAssy()
         {
-            swApp = SolidWorksSingleton.swApp;
+            //swApp = SolidWorksSingleton.swApp;
             pthPartAssytoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen;
 
             if (GUI.extensionSolidWorks == "SLDPRT")
@@ -332,6 +331,5 @@ namespace sPIke.SolidWorks.Standalone
                 swApp.OpenDoc6(pthPartAssytoOpen, 2, 256, "", 0, 0);
             }
         }
-
     }
 }

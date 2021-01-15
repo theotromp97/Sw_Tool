@@ -79,7 +79,7 @@ namespace sPIke.SolidWorks.Standalone
             else
             {
                 //create a part
-                PartDoc swPart = swApp.NewDocument(FileManager.pthPRTTempl, 0, 0, 0);
+                PartDoc swPart = swApp.NewDocument(classManager.fileManager.pthPRTTempl, 0, 0, 0);
             }
 
             assignModelProperties();
@@ -97,6 +97,19 @@ namespace sPIke.SolidWorks.Standalone
 
         }
 
+        public void openPartAssy()
+        {
+            string pthPartAssytoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen;
+
+            if (GUI.extensionSolidWorks == "SLDPRT")
+            {
+                swApp.OpenDoc6(pthPartAssytoOpen, 1, 256, "", 0, 0);
+            }
+            else if (GUI.extensionSolidWorks == "SLDASM")
+            {
+                swApp.OpenDoc6(pthPartAssytoOpen, 2, 256, "", 0, 0);
+            }
+        }
 
         private void assignModelProperties()
         {

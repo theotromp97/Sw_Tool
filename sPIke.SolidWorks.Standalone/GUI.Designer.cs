@@ -423,7 +423,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI";
             this.Text = "KarPi (Robotics Team Pi)";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GUI_MouseMove);
+            //this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GUI_MouseMove);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
