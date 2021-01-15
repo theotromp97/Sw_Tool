@@ -12,16 +12,21 @@ namespace sPIke.SolidWorks.Standalone
         public ClassManager classManager;
         public object[] folstucProjects;
 
-        //private static string pthProjFol;
-        public static string pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
-        public static string pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
-        public static string pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
-        public static string pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
-        public static string pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
-
+        public string pthProjFol;
+        public string pthPRTTempl;
+        public string pthASMTempl;
+        public string pthDRWVendorTempl;
+        public string pthDRWModiVendorTempl;
+        public string pthDRWManufacTempl ;
         public FileManager(ClassManager classMngr)
         {
             classManager = classMngr;
+            pthProjFol = "";
+            pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
+            pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
+            pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
+            pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
+            pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
         }
 
         public string[] GetFileNames(string path, string fileType)

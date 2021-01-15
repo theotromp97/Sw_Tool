@@ -33,8 +33,8 @@ namespace sPIke.SolidWorks.Standalone
 
         private void createPart_Load(object sender, EventArgs e)
         {
-            GUIcode.createProjectList();
-            cbbxProjectList.DataSource = GUIcode.folstucProjects;
+            formManager.classManager.fileManager.createProjectList();
+            cbbxProjectList.DataSource = formManager.classManager.fileManager.folstucProjects;
 
             pnlManuComp.Hide();
             pnlVendComp.Hide();
@@ -62,7 +62,7 @@ namespace sPIke.SolidWorks.Standalone
             txtVenSKU = txtSKU.Text;
             txtVendor = cbbxVendor.Text;
 
-            SolidWorksCreation.createSWPart();
+            //formManager.classManager.swManager.CreateNewPart();
 
             txtbxPartName.Text = "";
             txtExisPartName.Text = "";

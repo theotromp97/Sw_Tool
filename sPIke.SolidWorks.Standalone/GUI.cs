@@ -182,11 +182,12 @@ namespace sPIke.SolidWorks.Standalone
 
                     if (projFilesListBox.Items.Contains(itmDrwtoOpen) == true)
                     {
-                        SolidWorksCreation.createSWDrawing(false);
+                        //SolidWorksCreation.createSWDrawing(false);
+                        //formManager.classManager.swManager.CreateNewDrawing();
                     }
                     else
                     {
-                        SolidWorksCreation.createSWDrawing(true);
+                        //SolidWorksCreation.createSWDrawing(true);
                     }
                 }
                 else
@@ -232,7 +233,7 @@ namespace sPIke.SolidWorks.Standalone
                 extensionSolidWorks = ccbxExtensions.Text;
                 PartAssySolidWorkstoOpen = projFilesListBox.SelectedItem.ToString();
 
-                SolidWorksCreation.openPartAssy();
+                //SolidWorksCreation.openPartAssy();
             }
             else
             {

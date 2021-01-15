@@ -26,8 +26,8 @@ namespace sPIke.SolidWorks.Standalone
 
         private void CreateAssembly_Load(object sender, EventArgs e)
         {
-            GUIcode.createProjectList();
-            cbbxProjectList.DataSource = GUIcode.folstucProjects;
+            formManager.classManager.fileManager.createProjectList();
+            cbbxProjectList.DataSource = formManager.classManager.fileManager.folstucProjects;
 
             lblAuthorName.Text = GUI.AuthorName;
         }
