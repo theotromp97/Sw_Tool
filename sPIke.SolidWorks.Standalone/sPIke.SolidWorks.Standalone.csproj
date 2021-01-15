@@ -89,7 +89,6 @@
     <Compile Include="GUI.Designer.cs">
       <DependentUpon>GUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUIcode.cs" />
     <Compile Include="main.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -123,6 +122,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Resources\RTPi ASM.ASMDOT" />
+    <Resource Include="Resources\RTPi DRAWING A3 - Manufacturing.DRWDOT" />
+    <Resource Include="Resources\RTPi DRAWING A3 - Modified Vendor.DRWDOT" />
+    <Resource Include="Resources\RTPi DRAWING A3 - Vendor.DRWDOT" />
+    <Resource Include="Resources\RTPi PART.PRTDOT" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

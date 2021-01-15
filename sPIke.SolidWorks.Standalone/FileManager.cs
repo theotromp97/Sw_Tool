@@ -11,21 +11,18 @@ namespace sPIke.SolidWorks.Standalone
     {
         public ClassManager classManager;
         public object[] folstucProjects;
-        
+
+        //private static string pthProjFol;
+        public static string pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
+        public static string pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
+        public static string pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
+        public static string pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
+        public static string pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
+
         public FileManager(ClassManager classMngr)
         {
             classManager = classMngr;
         }
-
-        void pthHandler()
-        {
-            public string pthProjFol;
-            public string pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
-            public string pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
-            public string pthDRWVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Vendor.DRWDOT";
-            public string pthDRWModiVendorTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Modified Vendor.DRWDOT";
-            public string pthDRWManufacTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi DRAWING A3 - Manufacturing.DRWDOT";
-    }
 
         public string[] GetFiles(string path, string fileType)
         {
@@ -52,27 +49,30 @@ namespace sPIke.SolidWorks.Standalone
             return folProjects;
         }
 
-        public void loadProjectListGoogle()
+        public string loadProjectListGoogle()
         {
             string pthNLGoogle = "G:\\Gedeelde drives\\RTPI Projects\\";
             string pthENGoogle = "G:\\Shared drives\\RTPI Projects\\";
+            
 
             if (Directory.Exists(pthNLGoogle))
             {
-                errorMessageHandling(4);
+                ErrorHandler.errorMessageHandling(4);
                 pthProjFol = pthNLGoogle;
                 createProjectList();
             }
             else if (Directory.Exists(pthENGoogle))
             {
-                errorMessageHanding(4);
+                ErrorHandler.errorMessageHandling(4);
                 pthProjFol = pthENGoogle;
                 createProjectList();
             }
             else
             {
-                errorMessageHandling(5);
+                ErrorHandler.errorMessageHandling(6);
             }
+
+            return pthProjFol;
         }
     }
 }

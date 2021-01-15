@@ -60,8 +60,6 @@ namespace sPIke.SolidWorks.Standalone
             }
         }
 
-
-
         public void CreateNewPart(string saveName)
         {
             if (CreatePart.exisCheck == 1)
@@ -72,12 +70,8 @@ namespace sPIke.SolidWorks.Standalone
             else
             {
                 //create a part
-                PartDoc swPart = swApp.INewPart();
+                PartDoc swPart = swApp.NewDocument(FileManager.pthPRTTempl, 0, 0, 0);
             }
-
-            //activate part
-
-            IModelDoc2 swModel; swModel = swApp.ActiveDoc;
 
             assignModelProperties();
 
@@ -88,6 +82,7 @@ namespace sPIke.SolidWorks.Standalone
 
 
         }
+
         public void CreateAssembly()
         {
 

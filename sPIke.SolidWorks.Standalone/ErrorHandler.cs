@@ -15,8 +15,7 @@ namespace sPIke.SolidWorks.Standalone
             classManager = _classManager;
         }
 
-
-        public static void errorMessageHanding(int errorMessage)
+        public static void errorMessageHandling(int errorMessage)
         {
             if (errorMessage == 1)
             {
