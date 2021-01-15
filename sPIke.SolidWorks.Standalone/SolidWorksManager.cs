@@ -35,6 +35,15 @@ namespace sPIke.SolidWorks.Standalone
             classManager = classMngr;
         }
 
+        /// <summary>
+        /// returns if a Solidworks instance exists
+        /// </summary>
+        /// <returns> true if a Solidworks instance exists, false is not</returns>
+        public bool GetSolidWorksInstance()
+        {
+            return swApp != null;
+        }
+
         public async Task<SldWorks> OpenSolidWorks()
         {
             // This methods opens an instance of solidworks when solidworks is not opened yet
