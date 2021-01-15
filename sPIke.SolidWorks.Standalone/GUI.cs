@@ -65,15 +65,15 @@ namespace sPIke.SolidWorks.Standalone
             }
             else if (swApp == null)
             {
-                GUIcode.errorMessageHanding(3);
+                ErrorHandler.errorMessageHandling(3);
             }
             else if (AuthorName == null)
             {
-                GUIcode.errorMessageHanding(2);
+                ErrorHandler.errorMessageHandling(2);
             }
             else
             {
-                GUIcode.errorMessageHanding(1);
+                ErrorHandler.errorMessageHandling(1);
             }
         }
 
@@ -85,15 +85,15 @@ namespace sPIke.SolidWorks.Standalone
             }
             else if (swApp == null)
             {
-                GUIcode.errorMessageHanding(3);
+                ErrorHandler.errorMessageHandling(3);
             }
             else if(AuthorName == null)
             {
-                GUIcode.errorMessageHanding(2);
+                ErrorHandler.errorMessageHandling(2);
             }
             else
             {
-                GUIcode.errorMessageHanding(1);
+                ErrorHandler.errorMessageHandling(1);
             }
         }
 
@@ -188,12 +188,12 @@ namespace sPIke.SolidWorks.Standalone
                 }
                 else
                 {
-                    GUIcode.errorMessageHanding(1);
+                    ErrorHandler.errorMessageHandling(1);
                 }
             }
             else
             {
-                GUIcode.errorMessageHanding(3);
+                ErrorHandler.errorMessageHandling(1);
             }
 
             showProjectFiles("*." + ccbxExtensions.SelectedItem);
@@ -222,7 +222,7 @@ namespace sPIke.SolidWorks.Standalone
         {
             if (swApp == null)
             {
-                GUIcode.errorMessageHanding(3);
+                ErrorHandler.errorMessageHandling(3);
             }
             else if(GUI.GUIProj != null)
             {
@@ -233,7 +233,7 @@ namespace sPIke.SolidWorks.Standalone
             }
             else
             {
-                GUIcode.errorMessageHanding(1);
+                ErrorHandler.errorMessageHandling(1);
             }
         }
     }
