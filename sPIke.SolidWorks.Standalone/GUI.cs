@@ -28,11 +28,11 @@ namespace sPIke.SolidWorks.Standalone
             ccbxExtensions.Items.AddRange(extensions);
             ccbxExtensions.SelectedItem = extensions[0];
 
-            GUIcode.loadProjectListGoogle();
+            formManager.classManager.fileManager.loadProjectListGoogle();
 
-            if (GUIcode.folstucProjects != null)
+            if (formManager.classManager.fileManager.folstucProjects != null)
             {
-                GUIProjList.DataSource = GUIcode.folstucProjects;
+                GUIProjList.DataSource = formManager.classManager.fileManager.folstucProjects;
                 projectFolderToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
                 projectFolderToolStripMenuItem.Enabled = false;
             }
@@ -41,6 +41,8 @@ namespace sPIke.SolidWorks.Standalone
             pnlAuthorName.Hide();
         }
 
+        // check if this can get deleted
+        /*
         SldWorks swApp = SolidWorksSingleton.swApp;
 
         private void GUI_MouseMove(object sender, MouseEventArgs e)
@@ -55,7 +57,7 @@ namespace sPIke.SolidWorks.Standalone
             }
 
         }
-
+        */
         private void sWPartToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
@@ -63,7 +65,7 @@ namespace sPIke.SolidWorks.Standalone
             {
                 formManager.show(formManager.formCreatePart);
             }
-            else if (swApp == null)
+            else if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
                 ErrorHandler.errorMessageHandling(3);
             }
@@ -83,7 +85,7 @@ namespace sPIke.SolidWorks.Standalone
             {
                 formManager.show(formManager.formCreateAssembly);
             }
-            else if (swApp == null)
+            else if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
                 ErrorHandler.errorMessageHandling(3);
             }
@@ -116,7 +118,7 @@ namespace sPIke.SolidWorks.Standalone
 
             GUIProjList.DataSource = formManager.classManager.fileManager.createProjectList();
 
-            showProjectFiles();
+            showProjectFiles(ccbxExtensions.Text);
         }
 
         private void showProjectFiles(string fileType)
@@ -125,10 +127,11 @@ namespace sPIke.SolidWorks.Standalone
 
             DirectoryInfo fileDirectoryProj = new DirectoryInfo(pthProjFolder + "/" + GUIProjList.SelectedItem);
             FileInfo[] projFiles = fileDirectoryProj.GetFiles(fileType);
+            string[] fileList = formManager.classManager.fileManager.GetFileNames(pthProjFolder + "/" + GUIProjList.SelectedItem, fileType);
 
-            foreach (FileInfo file in projFiles)
+            if (fileList.Length > 0)
             {
-                projFilesListBox.Items.Add(file.Name);
+                projFilesListBox.Items.Add(fileList);
             }
         }
 
@@ -167,7 +170,7 @@ namespace sPIke.SolidWorks.Standalone
 
         private void btnCreateDrawing_Click(object sender, EventArgs e)
         {
-            if (swApp != null)
+            if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
                 if (GUIProj != null && projFilesListBox.SelectedItem != null && ccbxExtensions.Text == "SLDPRT" || ccbxExtensions.Text == "SLDASM")
                 {
@@ -220,7 +223,7 @@ namespace sPIke.SolidWorks.Standalone
 
         private void btnPartAssySpecs_Click(object sender, EventArgs e)
         {
-            if (swApp == null)
+            if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
                 ErrorHandler.errorMessageHandling(3);
             }
