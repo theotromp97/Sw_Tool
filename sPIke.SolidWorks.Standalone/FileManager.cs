@@ -18,9 +18,9 @@ namespace sPIke.SolidWorks.Standalone
         public string pthDRWVendorTempl;
         public string pthDRWModiVendorTempl;
         public string pthDRWManufacTempl ;
-        public FileManager(ClassManager classMngr)
+        public FileManager(ClassManager _classManager)
         {
-            classManager = classMngr;
+            classManager = _classManager;
             pthProjFol = "";
             pthPRTTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi PART.PRTDOT";
             pthASMTempl = pthProjFol + "Ξ_SolidWorks Standard Library\\Templates\\RTPi ASM.ASMDOT";
