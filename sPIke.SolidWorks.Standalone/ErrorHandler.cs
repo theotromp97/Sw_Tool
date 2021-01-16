@@ -15,6 +15,20 @@ namespace sPIke.SolidWorks.Standalone
             classManager = _classManager;
         }
 
+        /// <summary>
+        /// test code for errormessages
+        /// </summary> 
+        /*
+        public enum ErrorMessages { 
+            NoProject = 1,
+            NoNameSelected = 2,
+            NoSolidWorksAvailable = 3,
+            ProjectFolderFound = 4,
+            ProjectFolderNotFound = 5,
+            ProjectFolderNotSelected = 6
+        }
+        */
+
         public static void errorMessageHandling(int errorMessage)
         {
             if (errorMessage == 1)

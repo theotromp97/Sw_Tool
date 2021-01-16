@@ -26,7 +26,7 @@ namespace sPIke.SolidWorks.Standalone
             classManager = classMngr;
         }
 
-        public string[] GetFiles(string path, string fileType)
+        public string[] GetFileNames(string path, string fileType)
         {
 
             DirectoryInfo fileDirectoryProj = new DirectoryInfo(path);
