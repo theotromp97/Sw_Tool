@@ -41,6 +41,10 @@ namespace sPIke.SolidWorks.Standalone
             {
                 MessageBox.Show("There is no folder selected so the action has failed.", "PROJECT FOLDER NOT SELECTED", 0, MessageBoxIcon.Stop);
             }
+            else if (errorMessage == 7)
+            {
+                MessageBox.Show("Both part and assembly creation is openend and selected.", "PART/ASSEMBLY CREATION OPEN", 0, MessageBoxIcon.Stop);
+            }
         }
     }
 }

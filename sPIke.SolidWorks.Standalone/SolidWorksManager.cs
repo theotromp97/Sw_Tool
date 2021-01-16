@@ -60,7 +60,11 @@ namespace sPIke.SolidWorks.Standalone
             }
         }
 
-        public void CreateNewPart(string saveName)
+        /// <summary>
+        /// Part creation
+        /// </summary>
+
+        public void CreateNewPart()
         {
             if (CreatePart.exisCheck == 1)
             {
@@ -70,24 +74,18 @@ namespace sPIke.SolidWorks.Standalone
             else
             {
                 //create a part
-                PartDoc swPart = swApp.NewDocument(FileManager.pthPRTTempl, 0, 0, 0);
+                PartDoc swPart = swApp.NewDocument(FileManager.pth_PRTTempl, 0, 0, 0);
             }
 
             assignModelProperties();
 
-            //createPartNumber();
+            FileManager.create_PartAssyDrawNumber(1);
 
             //Save the part under a specific number
-            swModel.SaveAs(saveName);
+            swModel.SaveAs(FileManager.pth_SaveName);
 
 
         }
-
-        public void CreateAssembly()
-        {
-
-        }
-
 
         private void assignModelProperties()
         {
@@ -124,7 +122,20 @@ namespace sPIke.SolidWorks.Standalone
             }
         }
 
+        /// <summary>
+            /// Assembly creation
+            /// </summary>
 
+        public void CreateAssembly()
+        {
 
+        }
+
+        /// <summary>
+        /// Drawing creation
+        /// </summary>
+
+        
+        }
     }
 }
