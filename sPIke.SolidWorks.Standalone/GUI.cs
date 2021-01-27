@@ -12,6 +12,9 @@ namespace sPIke.SolidWorks.Standalone
         private string thisClassName = "GUI";
         public static FileInfo projFiles;
 
+        public string currentProject;
+
+        private string authorName;
         public GUI(FormManager _formManager)
         {
             string thisMethodName = "Constructor";
@@ -31,20 +34,23 @@ namespace sPIke.SolidWorks.Standalone
             string thisMethodName = "toolStripMenuItem_New_SWCreate_Part_Click";
             try
             {
-                if (GUI.GUIProj != null)
+                if (currentProject != null)
                 {
                     formManager.show(formManager.formCreatePart);
                 }
                 else if (formManager.classManager.swManager.GetSolidWorksInstance())
                 {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "SolidWorks does not exist");
                     ErrorHandler.errorMessageHandling(3);
                 }
-                else if (AuthorName == null)
+                else if (authorName == null)
                 {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "Author does not exist");
                     ErrorHandler.errorMessageHandling(2);
                 }
-                else
+                else // no project selected
                 {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "No project selected");
                     ErrorHandler.errorMessageHandling(1);
                 }
             }
@@ -55,22 +61,34 @@ namespace sPIke.SolidWorks.Standalone
         }
 
         private void toolStripMenuItem_NewSWCreateAssembly_Click(object sender, EventArgs e)
-        {             
-            if (GUI.GUIProj != null)
+        {
+            string thisMethodName = "toolStripMenuItem_New_SWCreate_Assembly_Click";
+            try
             {
-                formManager.show(formManager.formCreateAssembly);
+                if (currentProject != null)
+                {
+                    formManager.show(formManager.formCreateAssembly);
+                }
+                else if (formManager.classManager.swManager.GetSolidWorksInstance())
+                {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "SolidWorks does not exist");
+                    ErrorHandler.errorMessageHandling(3);
+                }
+                else if (authorName == null)
+                {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "Author does not exist");
+                    ErrorHandler.errorMessageHandling(2);
+                }
+                else
+                {
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "No project selected");
+                    ErrorHandler.errorMessageHandling(1);
+                }
             }
-            else if (formManager.classManager.swManager.GetSolidWorksInstance())
+
+            catch (Exception er)
             {
-                ErrorHandler.errorMessageHandling(3);
-            }
-            else if(AuthorName == null)
-            {
-                ErrorHandler.errorMessageHandling(2);
-            }
-            else
-            {
-                ErrorHandler.errorMessageHandling(1);
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
             }
         }
 
@@ -85,15 +103,9 @@ namespace sPIke.SolidWorks.Standalone
         }
 
         private void projectFolderToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        { 
             projectfolderBrowsingDialog.ShowDialog();
-            pthProjFolder = projectfolderBrowsingDialog.SelectedPath + "/";
-
-
-
-            comb_ProjectList.DataSource = formManager.classManager.fileManager.createProjectList();
-
-            showProjectFiles(comb_ExtentionList.Text);
+            formManager.classManager.fileManager.GetProjectFolder(projectfolderBrowsingDialog.SelectedPath);
         }
 
         private void showProjectFiles(string fileType)
@@ -115,7 +127,7 @@ namespace sPIke.SolidWorks.Standalone
             listBox_FileList.Items.Clear();
             showProjectFiles("*." + comb_ExtentionList.SelectedItem);
 
-            GUIProj = comb_ProjectList.SelectedItem.ToString();
+            currentProject = comb_ProjectList.SelectedItem.ToString();
         }
 
         private void comb_ExtensionList_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,6 +253,7 @@ namespace sPIke.SolidWorks.Standalone
            */
 
         }
+
     }
 
 

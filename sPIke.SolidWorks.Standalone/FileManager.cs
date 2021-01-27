@@ -204,7 +204,10 @@ namespace sPIke.SolidWorks.Standalone
             return pth_SaveName;
         }
 
-        
+        public void GetProjectFolder(string _projectPath)
+        {
+            string projectPath = _projectPath;
+        }
     }
 
 }

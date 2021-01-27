@@ -163,7 +163,7 @@
             this.toolStripMenuItem_NewSWCreateAssembly});
             this.toolStripMenuItem_NewSWCreate.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem_NewSWCreate.Name = "toolStripMenuItem_NewSWCreate";
-            this.toolStripMenuItem_NewSWCreate.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreate.Size = new System.Drawing.Size(128, 22);
             this.toolStripMenuItem_NewSWCreate.Text = "SW Create";
             // 
             // toolStripMenuItem_NewSWCreatePart
@@ -171,7 +171,7 @@
             this.toolStripMenuItem_NewSWCreatePart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
             this.toolStripMenuItem_NewSWCreatePart.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem_NewSWCreatePart.Name = "toolStripMenuItem_NewSWCreatePart";
-            this.toolStripMenuItem_NewSWCreatePart.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreatePart.Size = new System.Drawing.Size(145, 22);
             this.toolStripMenuItem_NewSWCreatePart.Text = "SW Part";
             this.toolStripMenuItem_NewSWCreatePart.Click += new System.EventHandler(this.toolStripMenuItem_NewSWCreatePart_Click);
             // 
@@ -180,7 +180,7 @@
             this.toolStripMenuItem_NewSWCreateAssembly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
             this.toolStripMenuItem_NewSWCreateAssembly.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem_NewSWCreateAssembly.Name = "toolStripMenuItem_NewSWCreateAssembly";
-            this.toolStripMenuItem_NewSWCreateAssembly.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreateAssembly.Size = new System.Drawing.Size(145, 22);
             this.toolStripMenuItem_NewSWCreateAssembly.Text = "SW Assembly";
             this.toolStripMenuItem_NewSWCreateAssembly.Click += new System.EventHandler(this.toolStripMenuItem_NewSWCreateAssembly_Click);
             // 
@@ -190,7 +190,7 @@
             this.toolStripMenuItem_NewExportSWDrawing,
             this.toolStripMenuItem_NewExportSWStep});
             this.toolStripMenuItem_NewExport.Name = "toolStripMenuItem_NewExport";
-            this.toolStripMenuItem_NewExport.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewExport.Size = new System.Drawing.Size(128, 22);
             this.toolStripMenuItem_NewExport.Text = "Export";
             // 
             // toolStripMenuItem_NewExportSWDrawing
