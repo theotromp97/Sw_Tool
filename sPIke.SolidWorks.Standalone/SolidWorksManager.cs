@@ -145,6 +145,6 @@ namespace sPIke.SolidWorks.Standalone
         /// </summary>
 
         
-        }
+        
     }
 }

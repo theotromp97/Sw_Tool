@@ -29,40 +29,40 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.solidWorksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.startInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitInstanceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.projectFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.authorNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sWPartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sWAssemblyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sWDrawingPackageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sWSTEPFilesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Configuration = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_ConfigurationSolidworks = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_ConfigurationProjectfolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_ConfigurationAuthorName = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_New = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewSWCreate = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewSWCreatePart = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewSWCreateAssembly = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewExport = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewExportSWDrawing = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_NewExportSWStep = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.projectfolderBrowsingDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.GUIProjList = new System.Windows.Forms.ComboBox();
-            this.projFilesListBox = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ccbxExtensions = new System.Windows.Forms.ComboBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.previewBox = new System.Windows.Forms.PictureBox();
+            this.comb_ProjectList = new System.Windows.Forms.ComboBox();
+            this.listBox_FileList = new System.Windows.Forms.ListBox();
+            this.lbl_Project = new System.Windows.Forms.Label();
+            this.lbl_Extension = new System.Windows.Forms.Label();
+            this.comb_ExtentionList = new System.Windows.Forms.ComboBox();
+            this.pbLogo = new System.Windows.Forms.PictureBox();
+            this.pic_Preview = new System.Windows.Forms.PictureBox();
             this.btnCreateDrawing = new System.Windows.Forms.Button();
             this.pnlAuthorName = new System.Windows.Forms.Panel();
-            this.btnAuthorSave = new System.Windows.Forms.Button();
-            this.txtbxAuthorName = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnPartAssySpecs = new System.Windows.Forms.Button();
+            this.btn_SaveUserName = new System.Windows.Forms.Button();
+            this.i_UserName = new System.Windows.Forms.TextBox();
+            this.lbl_EnterName = new System.Windows.Forms.Label();
+            this.btn_OpenPartAssySpecs = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Preview)).BeginInit();
             this.pnlAuthorName.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -72,9 +72,9 @@
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.configurationToolStripMenuItem,
-            this.optionsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.toolStripMenuItem_Configuration,
+            this.toolStripMenuItem_New,
+            this.toolStripMenuItem_Help});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -84,133 +84,133 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // configurationToolStripMenuItem
+            // toolStripMenuItem_Configuration
             // 
-            this.configurationToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.solidWorksToolStripMenuItem,
-            this.projectFolderToolStripMenuItem,
-            this.authorNameToolStripMenuItem});
-            this.configurationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
-            this.configurationToolStripMenuItem.Text = "Configuration";
+            this.toolStripMenuItem_Configuration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_ConfigurationSolidworks,
+            this.toolStripMenuItem_ConfigurationProjectfolder,
+            this.toolStripMenuItem_ConfigurationAuthorName});
+            this.toolStripMenuItem_Configuration.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.toolStripMenuItem_Configuration.Name = "toolStripMenuItem_Configuration";
+            this.toolStripMenuItem_Configuration.Size = new System.Drawing.Size(93, 20);
+            this.toolStripMenuItem_Configuration.Text = "Configuration";
             // 
-            // solidWorksToolStripMenuItem
+            // toolStripMenuItem_ConfigurationSolidworks
             // 
-            this.solidWorksToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.solidWorksToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startInstanceToolStripMenuItem,
-            this.exitInstanceToolStripMenuItem});
-            this.solidWorksToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.solidWorksToolStripMenuItem.Name = "solidWorksToolStripMenuItem";
-            this.solidWorksToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.solidWorksToolStripMenuItem.Text = "SolidWorks";
+            this.toolStripMenuItem_ConfigurationSolidworks.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_ConfigurationSolidworks.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance,
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance});
+            this.toolStripMenuItem_ConfigurationSolidworks.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_ConfigurationSolidworks.Name = "toolStripMenuItem_ConfigurationSolidworks";
+            this.toolStripMenuItem_ConfigurationSolidworks.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationSolidworks.Text = "SolidWorks";
             // 
-            // startInstanceToolStripMenuItem
+            // toolStripMenuItem_ConfigurationSolidworksStartinstance
             // 
-            this.startInstanceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.startInstanceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.startInstanceToolStripMenuItem.Name = "startInstanceToolStripMenuItem";
-            this.startInstanceToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.startInstanceToolStripMenuItem.Text = "Start Instance";
-            this.startInstanceToolStripMenuItem.Click += new System.EventHandler(this.startInstanceToolStripMenuItem1_Click);
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Name = "toolStripMenuItem_ConfigurationSolidworksStartinstance";
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Text = "Start Instance";
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Click += new System.EventHandler(this.startInstanceToolStripMenuItem1_Click);
             // 
-            // exitInstanceToolStripMenuItem
+            // toolStripMenuItem_ConfigurationSolidworksCloseinstance
             // 
-            this.exitInstanceToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.exitInstanceToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.exitInstanceToolStripMenuItem.Name = "exitInstanceToolStripMenuItem";
-            this.exitInstanceToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.exitInstanceToolStripMenuItem.Text = "Exit Instance";
-            this.exitInstanceToolStripMenuItem.Click += new System.EventHandler(this.exitInstanceToolStripMenuItem1_Click);
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Name = "toolStripMenuItem_ConfigurationSolidworksCloseinstance";
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Text = "Close Instance";
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Click += new System.EventHandler(this.exitInstanceToolStripMenuItem1_Click);
             // 
-            // projectFolderToolStripMenuItem
+            // toolStripMenuItem_ConfigurationProjectfolder
             // 
-            this.projectFolderToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.projectFolderToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.projectFolderToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.projectFolderToolStripMenuItem.Name = "projectFolderToolStripMenuItem";
-            this.projectFolderToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.projectFolderToolStripMenuItem.Text = "Project folder";
-            this.projectFolderToolStripMenuItem.Click += new System.EventHandler(this.projectFolderToolStripMenuItem_Click);
+            this.toolStripMenuItem_ConfigurationProjectfolder.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_ConfigurationProjectfolder.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_ConfigurationProjectfolder.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripMenuItem_ConfigurationProjectfolder.Name = "toolStripMenuItem_ConfigurationProjectfolder";
+            this.toolStripMenuItem_ConfigurationProjectfolder.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationProjectfolder.Text = "Project folder";
+            this.toolStripMenuItem_ConfigurationProjectfolder.Click += new System.EventHandler(this.projectFolderToolStripMenuItem_Click);
             // 
-            // authorNameToolStripMenuItem
+            // toolStripMenuItem_ConfigurationAuthorName
             // 
-            this.authorNameToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.authorNameToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.authorNameToolStripMenuItem.Name = "authorNameToolStripMenuItem";
-            this.authorNameToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.authorNameToolStripMenuItem.Text = "Author Name";
-            this.authorNameToolStripMenuItem.Click += new System.EventHandler(this.appAuthorToolStripMenuItem_Click);
+            this.toolStripMenuItem_ConfigurationAuthorName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_ConfigurationAuthorName.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_ConfigurationAuthorName.Name = "toolStripMenuItem_ConfigurationAuthorName";
+            this.toolStripMenuItem_ConfigurationAuthorName.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationAuthorName.Text = "Author Name";
+            this.toolStripMenuItem_ConfigurationAuthorName.Click += new System.EventHandler(this.appAuthorToolStripMenuItem_Click);
             // 
-            // optionsToolStripMenuItem
+            // toolStripMenuItem_New
             // 
-            this.optionsToolStripMenuItem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createToolStripMenuItem,
-            this.exportToolStripMenuItem});
-            this.optionsToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.optionsToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Transparent;
-            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
-            this.optionsToolStripMenuItem.Text = "Creation";
+            this.toolStripMenuItem_New.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.toolStripMenuItem_New.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_NewSWCreate,
+            this.toolStripMenuItem_NewExport});
+            this.toolStripMenuItem_New.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_New.ImageTransparentColor = System.Drawing.Color.Transparent;
+            this.toolStripMenuItem_New.Name = "toolStripMenuItem_New";
+            this.toolStripMenuItem_New.Size = new System.Drawing.Size(43, 20);
+            this.toolStripMenuItem_New.Text = "New";
             // 
-            // createToolStripMenuItem
+            // toolStripMenuItem_NewSWCreate
             // 
-            this.createToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.createToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sWPartToolStripMenuItem,
-            this.sWAssemblyToolStripMenuItem});
-            this.createToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.createToolStripMenuItem.Name = "createToolStripMenuItem";
-            this.createToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.createToolStripMenuItem.Text = "SW Create";
+            this.toolStripMenuItem_NewSWCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_NewSWCreate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_NewSWCreatePart,
+            this.toolStripMenuItem_NewSWCreateAssembly});
+            this.toolStripMenuItem_NewSWCreate.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_NewSWCreate.Name = "toolStripMenuItem_NewSWCreate";
+            this.toolStripMenuItem_NewSWCreate.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreate.Text = "SW Create";
             // 
-            // sWPartToolStripMenuItem
+            // toolStripMenuItem_NewSWCreatePart
             // 
-            this.sWPartToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.sWPartToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.sWPartToolStripMenuItem.Name = "sWPartToolStripMenuItem";
-            this.sWPartToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.sWPartToolStripMenuItem.Text = "SW Part";
-            this.sWPartToolStripMenuItem.Click += new System.EventHandler(this.sWPartToolStripMenuItem_Click);
+            this.toolStripMenuItem_NewSWCreatePart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_NewSWCreatePart.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_NewSWCreatePart.Name = "toolStripMenuItem_NewSWCreatePart";
+            this.toolStripMenuItem_NewSWCreatePart.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreatePart.Text = "SW Part";
+            this.toolStripMenuItem_NewSWCreatePart.Click += new System.EventHandler(this.toolStripMenuItem_NewSWCreatePart_Click);
             // 
-            // sWAssemblyToolStripMenuItem
+            // toolStripMenuItem_NewSWCreateAssembly
             // 
-            this.sWAssemblyToolStripMenuItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.sWAssemblyToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.sWAssemblyToolStripMenuItem.Name = "sWAssemblyToolStripMenuItem";
-            this.sWAssemblyToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.sWAssemblyToolStripMenuItem.Text = "SW Assembly";
-            this.sWAssemblyToolStripMenuItem.Click += new System.EventHandler(this.sWAssemblyToolStripMenuItem_Click);
+            this.toolStripMenuItem_NewSWCreateAssembly.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.toolStripMenuItem_NewSWCreateAssembly.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_NewSWCreateAssembly.Name = "toolStripMenuItem_NewSWCreateAssembly";
+            this.toolStripMenuItem_NewSWCreateAssembly.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewSWCreateAssembly.Text = "SW Assembly";
+            this.toolStripMenuItem_NewSWCreateAssembly.Click += new System.EventHandler(this.toolStripMenuItem_NewSWCreateAssembly_Click);
             // 
-            // exportToolStripMenuItem
+            // toolStripMenuItem_NewExport
             // 
-            this.exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sWDrawingPackageToolStripMenuItem,
-            this.sWSTEPFilesToolStripMenuItem});
-            this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.exportToolStripMenuItem.Text = "Export";
+            this.toolStripMenuItem_NewExport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem_NewExportSWDrawing,
+            this.toolStripMenuItem_NewExportSWStep});
+            this.toolStripMenuItem_NewExport.Name = "toolStripMenuItem_NewExport";
+            this.toolStripMenuItem_NewExport.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_NewExport.Text = "Export";
             // 
-            // sWDrawingPackageToolStripMenuItem
+            // toolStripMenuItem_NewExportSWDrawing
             // 
-            this.sWDrawingPackageToolStripMenuItem.Name = "sWDrawingPackageToolStripMenuItem";
-            this.sWDrawingPackageToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.sWDrawingPackageToolStripMenuItem.Text = "SW Drawing Package";
+            this.toolStripMenuItem_NewExportSWDrawing.Name = "toolStripMenuItem_NewExportSWDrawing";
+            this.toolStripMenuItem_NewExportSWDrawing.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItem_NewExportSWDrawing.Text = "SW Drawing Package";
             // 
-            // sWSTEPFilesToolStripMenuItem
+            // toolStripMenuItem_NewExportSWStep
             // 
-            this.sWSTEPFilesToolStripMenuItem.Name = "sWSTEPFilesToolStripMenuItem";
-            this.sWSTEPFilesToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.sWSTEPFilesToolStripMenuItem.Text = "SW STEP Files";
+            this.toolStripMenuItem_NewExportSWStep.Name = "toolStripMenuItem_NewExportSWStep";
+            this.toolStripMenuItem_NewExportSWStep.Size = new System.Drawing.Size(185, 22);
+            this.toolStripMenuItem_NewExportSWStep.Text = "SW STEP Files";
             // 
-            // helpToolStripMenuItem
+            // toolStripMenuItem_Help
             // 
-            this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.White;
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.toolStripMenuItem_Help.ForeColor = System.Drawing.Color.White;
+            this.toolStripMenuItem_Help.Name = "toolStripMenuItem_Help";
+            this.toolStripMenuItem_Help.Size = new System.Drawing.Size(44, 20);
+            this.toolStripMenuItem_Help.Text = "Help";
             // 
             // statusStrip1
             // 
@@ -232,91 +232,91 @@
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
             // 
-            // GUIProjList
+            // comb_ProjectList
             // 
-            this.GUIProjList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.GUIProjList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.GUIProjList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GUIProjList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GUIProjList.ForeColor = System.Drawing.Color.White;
-            this.GUIProjList.FormattingEnabled = true;
-            this.GUIProjList.Location = new System.Drawing.Point(154, 56);
-            this.GUIProjList.Margin = new System.Windows.Forms.Padding(2);
-            this.GUIProjList.Name = "GUIProjList";
-            this.GUIProjList.Size = new System.Drawing.Size(236, 25);
-            this.GUIProjList.TabIndex = 16;
-            this.GUIProjList.SelectedIndexChanged += new System.EventHandler(this.GUIProjList_SelectedIndexChanged);
+            this.comb_ProjectList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.comb_ProjectList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comb_ProjectList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comb_ProjectList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comb_ProjectList.ForeColor = System.Drawing.Color.White;
+            this.comb_ProjectList.FormattingEnabled = true;
+            this.comb_ProjectList.Location = new System.Drawing.Point(154, 56);
+            this.comb_ProjectList.Margin = new System.Windows.Forms.Padding(2);
+            this.comb_ProjectList.Name = "comb_ProjectList";
+            this.comb_ProjectList.Size = new System.Drawing.Size(236, 25);
+            this.comb_ProjectList.TabIndex = 16;
+            this.comb_ProjectList.SelectedIndexChanged += new System.EventHandler(this.GUIProjList_SelectedIndexChanged);
             // 
-            // projFilesListBox
+            // listBox_FileList
             // 
-            this.projFilesListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.projFilesListBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.projFilesListBox.ForeColor = System.Drawing.Color.White;
-            this.projFilesListBox.FormattingEnabled = true;
-            this.projFilesListBox.ItemHeight = 17;
-            this.projFilesListBox.Location = new System.Drawing.Point(11, 86);
-            this.projFilesListBox.Name = "projFilesListBox";
-            this.projFilesListBox.Size = new System.Drawing.Size(379, 463);
-            this.projFilesListBox.TabIndex = 17;
-            this.projFilesListBox.SelectedIndexChanged += new System.EventHandler(this.projFilesListBox_SelectedIndexChanged);
+            this.listBox_FileList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.listBox_FileList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox_FileList.ForeColor = System.Drawing.Color.White;
+            this.listBox_FileList.FormattingEnabled = true;
+            this.listBox_FileList.ItemHeight = 17;
+            this.listBox_FileList.Location = new System.Drawing.Point(11, 86);
+            this.listBox_FileList.Name = "listBox_FileList";
+            this.listBox_FileList.Size = new System.Drawing.Size(379, 463);
+            this.listBox_FileList.TabIndex = 17;
+            this.listBox_FileList.SelectedIndexChanged += new System.EventHandler(this.listBox_FileList_SelectedIndexChanged);
             // 
-            // label1
+            // lbl_Project
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(155, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 17);
-            this.label1.TabIndex = 23;
-            this.label1.Text = "Project";
+            this.lbl_Project.AutoSize = true;
+            this.lbl_Project.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Project.ForeColor = System.Drawing.Color.White;
+            this.lbl_Project.Location = new System.Drawing.Point(155, 31);
+            this.lbl_Project.Name = "lbl_Project";
+            this.lbl_Project.Size = new System.Drawing.Size(48, 17);
+            this.lbl_Project.TabIndex = 23;
+            this.lbl_Project.Text = "Project";
             // 
-            // label2
+            // lbl_Extension
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(391, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 17);
-            this.label2.TabIndex = 24;
-            this.label2.Text = "Extension";
+            this.lbl_Extension.AutoSize = true;
+            this.lbl_Extension.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Extension.ForeColor = System.Drawing.Color.White;
+            this.lbl_Extension.Location = new System.Drawing.Point(391, 31);
+            this.lbl_Extension.Name = "lbl_Extension";
+            this.lbl_Extension.Size = new System.Drawing.Size(63, 17);
+            this.lbl_Extension.TabIndex = 24;
+            this.lbl_Extension.Text = "Extension";
             // 
-            // ccbxExtensions
+            // comb_ExtentionList
             // 
-            this.ccbxExtensions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.ccbxExtensions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ccbxExtensions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ccbxExtensions.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ccbxExtensions.ForeColor = System.Drawing.Color.White;
-            this.ccbxExtensions.FormattingEnabled = true;
-            this.ccbxExtensions.Location = new System.Drawing.Point(394, 56);
-            this.ccbxExtensions.Margin = new System.Windows.Forms.Padding(2);
-            this.ccbxExtensions.Name = "ccbxExtensions";
-            this.ccbxExtensions.Size = new System.Drawing.Size(110, 25);
-            this.ccbxExtensions.TabIndex = 25;
-            this.ccbxExtensions.SelectedIndexChanged += new System.EventHandler(this.ccbxExtensions_SelectedIndexChanged);
+            this.comb_ExtentionList.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.comb_ExtentionList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comb_ExtentionList.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comb_ExtentionList.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comb_ExtentionList.ForeColor = System.Drawing.Color.White;
+            this.comb_ExtentionList.FormattingEnabled = true;
+            this.comb_ExtentionList.Location = new System.Drawing.Point(394, 56);
+            this.comb_ExtentionList.Margin = new System.Windows.Forms.Padding(2);
+            this.comb_ExtentionList.Name = "comb_ExtentionList";
+            this.comb_ExtentionList.Size = new System.Drawing.Size(110, 25);
+            this.comb_ExtentionList.TabIndex = 25;
+            this.comb_ExtentionList.SelectedIndexChanged += new System.EventHandler(this.comb_ExtensionList_SelectedIndexChanged);
             // 
-            // pictureBox1
+            // pbLogo
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::sPIke.SolidWorks.Standalone.Properties.Resources.Red_digital_logo;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 28);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 53);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 26;
-            this.pictureBox1.TabStop = false;
+            this.pbLogo.BackColor = System.Drawing.Color.Transparent;
+            this.pbLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbLogo.Image = global::sPIke.SolidWorks.Standalone.Properties.Resources.Red_digital_logo;
+            this.pbLogo.Location = new System.Drawing.Point(12, 28);
+            this.pbLogo.Name = "pbLogo";
+            this.pbLogo.Size = new System.Drawing.Size(137, 53);
+            this.pbLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbLogo.TabIndex = 26;
+            this.pbLogo.TabStop = false;
             // 
-            // previewBox
+            // pic_Preview
             // 
-            this.previewBox.BackColor = System.Drawing.Color.White;
-            this.previewBox.Location = new System.Drawing.Point(394, 86);
-            this.previewBox.Name = "previewBox";
-            this.previewBox.Size = new System.Drawing.Size(404, 463);
-            this.previewBox.TabIndex = 27;
-            this.previewBox.TabStop = false;
+            this.pic_Preview.BackColor = System.Drawing.Color.White;
+            this.pic_Preview.Location = new System.Drawing.Point(394, 86);
+            this.pic_Preview.Name = "pic_Preview";
+            this.pic_Preview.Size = new System.Drawing.Size(404, 463);
+            this.pic_Preview.TabIndex = 27;
+            this.pic_Preview.TabStop = false;
             // 
             // btnCreateDrawing
             // 
@@ -333,73 +333,73 @@
             this.btnCreateDrawing.TabIndex = 28;
             this.btnCreateDrawing.Text = "Open SW Drawing Specifications";
             this.btnCreateDrawing.UseVisualStyleBackColor = false;
-            this.btnCreateDrawing.Click += new System.EventHandler(this.btnCreateDrawing_Click);
+            this.btnCreateDrawing.Click += new System.EventHandler(this.btn_CreateDrawing_Click);
             // 
             // pnlAuthorName
             // 
-            this.pnlAuthorName.Controls.Add(this.btnAuthorSave);
-            this.pnlAuthorName.Controls.Add(this.txtbxAuthorName);
-            this.pnlAuthorName.Controls.Add(this.label3);
+            this.pnlAuthorName.Controls.Add(this.btn_SaveUserName);
+            this.pnlAuthorName.Controls.Add(this.i_UserName);
+            this.pnlAuthorName.Controls.Add(this.lbl_EnterName);
             this.pnlAuthorName.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pnlAuthorName.Location = new System.Drawing.Point(0, 501);
             this.pnlAuthorName.Name = "pnlAuthorName";
             this.pnlAuthorName.Size = new System.Drawing.Size(810, 62);
             this.pnlAuthorName.TabIndex = 29;
             // 
-            // btnAuthorSave
+            // btn_SaveUserName
             // 
-            this.btnAuthorSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.btnAuthorSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnAuthorSave.FlatAppearance.BorderSize = 0;
-            this.btnAuthorSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAuthorSave.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAuthorSave.ForeColor = System.Drawing.Color.White;
-            this.btnAuthorSave.Location = new System.Drawing.Point(218, 30);
-            this.btnAuthorSave.Name = "btnAuthorSave";
-            this.btnAuthorSave.Size = new System.Drawing.Size(127, 25);
-            this.btnAuthorSave.TabIndex = 2;
-            this.btnAuthorSave.Text = "Save Author Name";
-            this.btnAuthorSave.UseVisualStyleBackColor = false;
-            this.btnAuthorSave.Click += new System.EventHandler(this.btnAuthorSave_Click);
+            this.btn_SaveUserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.btn_SaveUserName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_SaveUserName.FlatAppearance.BorderSize = 0;
+            this.btn_SaveUserName.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_SaveUserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveUserName.ForeColor = System.Drawing.Color.White;
+            this.btn_SaveUserName.Location = new System.Drawing.Point(218, 30);
+            this.btn_SaveUserName.Name = "btn_SaveUserName";
+            this.btn_SaveUserName.Size = new System.Drawing.Size(127, 25);
+            this.btn_SaveUserName.TabIndex = 2;
+            this.btn_SaveUserName.Text = "Save Author Name";
+            this.btn_SaveUserName.UseVisualStyleBackColor = false;
+            this.btn_SaveUserName.Click += new System.EventHandler(this.btn_SaveUserName_Click);
             // 
-            // txtbxAuthorName
+            // i_UserName
             // 
-            this.txtbxAuthorName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.txtbxAuthorName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtbxAuthorName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtbxAuthorName.ForeColor = System.Drawing.Color.White;
-            this.txtbxAuthorName.Location = new System.Drawing.Point(12, 30);
-            this.txtbxAuthorName.Name = "txtbxAuthorName";
-            this.txtbxAuthorName.Size = new System.Drawing.Size(200, 25);
-            this.txtbxAuthorName.TabIndex = 1;
+            this.i_UserName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.i_UserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.i_UserName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.i_UserName.ForeColor = System.Drawing.Color.White;
+            this.i_UserName.Location = new System.Drawing.Point(12, 30);
+            this.i_UserName.Name = "i_UserName";
+            this.i_UserName.Size = new System.Drawing.Size(200, 25);
+            this.i_UserName.TabIndex = 1;
             // 
-            // label3
+            // lbl_EnterName
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(14, 7);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(104, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Enter your name";
+            this.lbl_EnterName.AutoSize = true;
+            this.lbl_EnterName.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_EnterName.ForeColor = System.Drawing.Color.White;
+            this.lbl_EnterName.Location = new System.Drawing.Point(14, 7);
+            this.lbl_EnterName.Name = "lbl_EnterName";
+            this.lbl_EnterName.Size = new System.Drawing.Size(104, 17);
+            this.lbl_EnterName.TabIndex = 0;
+            this.lbl_EnterName.Text = "Enter your name";
             // 
-            // btnPartAssySpecs
+            // btn_OpenPartAssySpecs
             // 
-            this.btnPartAssySpecs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
-            this.btnPartAssySpecs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPartAssySpecs.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPartAssySpecs.FlatAppearance.BorderSize = 0;
-            this.btnPartAssySpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPartAssySpecs.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPartAssySpecs.ForeColor = System.Drawing.Color.White;
-            this.btnPartAssySpecs.Location = new System.Drawing.Point(581, 27);
-            this.btnPartAssySpecs.Name = "btnPartAssySpecs";
-            this.btnPartAssySpecs.Size = new System.Drawing.Size(217, 25);
-            this.btnPartAssySpecs.TabIndex = 30;
-            this.btnPartAssySpecs.Text = "Open SW Part/Assy Specifications";
-            this.btnPartAssySpecs.UseVisualStyleBackColor = false;
-            this.btnPartAssySpecs.Click += new System.EventHandler(this.btnPartAssySpecs_Click);
+            this.btn_OpenPartAssySpecs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
+            this.btn_OpenPartAssySpecs.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btn_OpenPartAssySpecs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_OpenPartAssySpecs.FlatAppearance.BorderSize = 0;
+            this.btn_OpenPartAssySpecs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_OpenPartAssySpecs.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_OpenPartAssySpecs.ForeColor = System.Drawing.Color.White;
+            this.btn_OpenPartAssySpecs.Location = new System.Drawing.Point(581, 27);
+            this.btn_OpenPartAssySpecs.Name = "btn_OpenPartAssySpecs";
+            this.btn_OpenPartAssySpecs.Size = new System.Drawing.Size(217, 25);
+            this.btn_OpenPartAssySpecs.TabIndex = 30;
+            this.btn_OpenPartAssySpecs.Text = "Open SW Part/Assy Specifications";
+            this.btn_OpenPartAssySpecs.UseVisualStyleBackColor = false;
+            this.btn_OpenPartAssySpecs.Click += new System.EventHandler(this.btn_PartAssySpecs_Click);
             // 
             // GUI
             // 
@@ -407,29 +407,29 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(810, 585);
-            this.Controls.Add(this.btnPartAssySpecs);
+            this.Controls.Add(this.btn_OpenPartAssySpecs);
             this.Controls.Add(this.pnlAuthorName);
             this.Controls.Add(this.btnCreateDrawing);
-            this.Controls.Add(this.previewBox);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.ccbxExtensions);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.projFilesListBox);
-            this.Controls.Add(this.GUIProjList);
+            this.Controls.Add(this.pic_Preview);
+            this.Controls.Add(this.pbLogo);
+            this.Controls.Add(this.comb_ExtentionList);
+            this.Controls.Add(this.lbl_Extension);
+            this.Controls.Add(this.lbl_Project);
+            this.Controls.Add(this.listBox_FileList);
+            this.Controls.Add(this.comb_ProjectList);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GUI";
             this.Text = "KarPi (Robotics Team Pi)";
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GUI_MouseMove);
+            this.Load += new System.EventHandler(this.GUI_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_Preview)).EndInit();
             this.pnlAuthorName.ResumeLayout(false);
             this.pnlAuthorName.PerformLayout();
             this.ResumeLayout(false);
@@ -439,36 +439,36 @@
 
         #endregion
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem createToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sWPartToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sWAssemblyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_New;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Help;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewSWCreate;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewSWCreatePart;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewSWCreateAssembly;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripMenuItem configurationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem solidWorksToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem startInstanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitInstanceToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem projectFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_Configuration;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationSolidworks;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationSolidworksStartinstance;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationSolidworksCloseinstance;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationProjectfolder;
         private System.Windows.Forms.FolderBrowserDialog projectfolderBrowsingDialog;
-        private System.Windows.Forms.ComboBox GUIProjList;
-        private System.Windows.Forms.ListBox projFilesListBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox ccbxExtensions;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox previewBox;
+        private System.Windows.Forms.ComboBox comb_ProjectList;
+        private System.Windows.Forms.ListBox listBox_FileList;
+        private System.Windows.Forms.Label lbl_Project;
+        private System.Windows.Forms.Label lbl_Extension;
+        private System.Windows.Forms.ComboBox comb_ExtentionList;
+        private System.Windows.Forms.PictureBox pbLogo;
+        private System.Windows.Forms.PictureBox pic_Preview;
         private System.Windows.Forms.Button btnCreateDrawing;
         private System.Windows.Forms.Panel pnlAuthorName;
-        private System.Windows.Forms.TextBox txtbxAuthorName;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAuthorSave;
-        private System.Windows.Forms.ToolStripMenuItem authorNameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sWDrawingPackageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sWSTEPFilesToolStripMenuItem;
-        private System.Windows.Forms.Button btnPartAssySpecs;
+        private System.Windows.Forms.TextBox i_UserName;
+        private System.Windows.Forms.Label lbl_EnterName;
+        private System.Windows.Forms.Button btn_SaveUserName;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationAuthorName;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewExport;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewExportSWDrawing;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_NewExportSWStep;
+        private System.Windows.Forms.Button btn_OpenPartAssySpecs;
     }
 }
 

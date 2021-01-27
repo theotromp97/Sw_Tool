@@ -33,10 +33,10 @@ namespace sPIke.SolidWorks.Standalone
             FileInfo[] projFiles = fileDirectoryProj.GetFiles();
 
             string[] fileNameList = new string[projFiles.Length];
-            foreach (FileInfo file in projFiles)
-            {
-                fileNameList.Append(file.Name);
-            }
+                foreach (FileInfo file in projFiles)
+                {
+                    fileNameList.Append(file.Name);
+                }
             return fileNameList;
         }
 

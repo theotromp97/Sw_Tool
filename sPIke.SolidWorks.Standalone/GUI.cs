@@ -9,78 +9,53 @@ namespace sPIke.SolidWorks.Standalone
     public partial class GUI : Form
     {
         public FormManager formManager;
-        public static string pthProjFolder;
-        public static string AuthorName;
-        public static string GUIProj;
-        public static string extensionSolidWorks;
-        public static string PartAssySolidWorkstoOpen;
-        public static string pthDrwtoOpen;
-        public static string itmDrwtoOpen;
-
+        private string thisClassName = "GUI";
         public static FileInfo projFiles;
 
         public GUI(FormManager _formManager)
         {
-            formManager = _formManager;
-            InitializeComponent();
+            string thisMethodName = "Constructor";
 
-            string[] extensions = new string[] { "PDF" ,"SLDPRT", "SLDASM", "STEP", "STL" };
-            ccbxExtensions.Items.AddRange(extensions);
-            ccbxExtensions.SelectedItem = extensions[0];
-
-            formManager.classManager.fileManager.loadProjectListGoogle();
-
-            if (formManager.classManager.fileManager.folstucProjects != null)
+            try
             {
-                GUIProjList.DataSource = formManager.classManager.fileManager.folstucProjects;
-                projectFolderToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
-                projectFolderToolStripMenuItem.Enabled = false;
+                InitializeComponent();
             }
-
-
-            pnlAuthorName.Hide();
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
         }
 
-        // check if this can get deleted
-        /*
-        SldWorks swApp = SolidWorksSingleton.swApp;
-
-        private void GUI_MouseMove(object sender, MouseEventArgs e)
+        private void toolStripMenuItem_NewSWCreatePart_Click(object sender, EventArgs e)
         {
-            if (swApp != null)
+            string thisMethodName = "toolStripMenuItem_New_SWCreate_Part_Click";
+            try
             {
-                toolStripStatusLabel1.Text = "SolidWorks instance exist";
+                if (GUI.GUIProj != null)
+                {
+                    formManager.show(formManager.formCreatePart);
+                }
+                else if (formManager.classManager.swManager.GetSolidWorksInstance())
+                {
+                    ErrorHandler.errorMessageHandling(3);
+                }
+                else if (AuthorName == null)
+                {
+                    ErrorHandler.errorMessageHandling(2);
+                }
+                else
+                {
+                    ErrorHandler.errorMessageHandling(1);
+                }
             }
-            else if (swApp == null)
+            catch (Exception er)
             {
-                toolStripStatusLabel1.Text = "SolidWorks instance does not exist";
-            }
-
-        }
-        */
-        private void sWPartToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            if (GUI.GUIProj != null)
-            {
-                formManager.show(formManager.formCreatePart);
-            }
-            else if (formManager.classManager.swManager.GetSolidWorksInstance())
-            {
-                ErrorHandler.errorMessageHandling(3);
-            }
-            else if (AuthorName == null)
-            {
-                ErrorHandler.errorMessageHandling(2);
-            }
-            else
-            {
-                ErrorHandler.errorMessageHandling(1);
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
             }
         }
 
-        private void sWAssemblyToolStripMenuItem_Click(object sender, EventArgs e)
-        {                        
+        private void toolStripMenuItem_NewSWCreateAssembly_Click(object sender, EventArgs e)
+        {             
             if (GUI.GUIProj != null)
             {
                 formManager.show(formManager.formCreateAssembly);
@@ -116,71 +91,58 @@ namespace sPIke.SolidWorks.Standalone
 
 
 
-            GUIProjList.DataSource = formManager.classManager.fileManager.createProjectList();
+            comb_ProjectList.DataSource = formManager.classManager.fileManager.createProjectList();
 
-            showProjectFiles(ccbxExtensions.Text);
+            showProjectFiles(comb_ExtentionList.Text);
         }
 
         private void showProjectFiles(string fileType)
         {
-            projFilesListBox.Items.Clear();
+            listBox_FileList.Items.Clear();
 
-            DirectoryInfo fileDirectoryProj = new DirectoryInfo(pthProjFolder + "/" + GUIProjList.SelectedItem);
+            DirectoryInfo fileDirectoryProj = new DirectoryInfo(pthProjFolder + "/" + comb_ProjectList.SelectedItem);
             FileInfo[] projFiles = fileDirectoryProj.GetFiles(fileType);
-            string[] fileList = formManager.classManager.fileManager.GetFileNames(pthProjFolder + "/" + GUIProjList.SelectedItem, fileType);
+            string[] fileList = formManager.classManager.fileManager.GetFileNames(pthProjFolder + "/" + comb_ProjectList.SelectedItem, fileType);
 
             if (fileList.Length > 0)
             {
-                projFilesListBox.Items.Add(fileList);
+                listBox_FileList.Items.Add(fileList);
             }
         }
 
         private void GUIProjList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            projFilesListBox.Items.Clear();
-            showProjectFiles("*." + ccbxExtensions.SelectedItem);
+            listBox_FileList.Items.Clear();
+            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
 
-            GUIProj = GUIProjList.SelectedItem.ToString();
+            GUIProj = comb_ProjectList.SelectedItem.ToString();
         }
 
-        private void ccbxExtensions_SelectedIndexChanged(object sender, EventArgs e)
+        private void comb_ExtensionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            projFilesListBox.Items.Clear();
-            showProjectFiles("*." + ccbxExtensions.SelectedItem);
+            listBox_FileList.Items.Clear();
+            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
         }
 
-        private void projFilesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void listBox_FileList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            System.Drawing.Bitmap previewPicture;
 
-            //string projFilePreview = GUI.pthProjFolder + "/" + projFilesListBox.SelectedItem.ToString();
-            string projFilePreview = "G:/Gedeelde drives/RTPI Projects/EXPO_201/12 T small pulley.SLDPRT";
-
-            //System.Drawing.Image.GetThumbnailImageAbort myCallback = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
-            //System.Drawing.Bitmap myBitmap = new System.Drawing.Bitmap("Climber.jpg");
-            // System.Drawing.Image myThumbnail = myBitmap.GetThumbnailImage(
-            // 40, 40, myCallback, IntPtr.Zero);
-
-            //previewBox.Image = System.Drawing.Image.FromFile(projFilePreview);
-
-
-            
-
+            //UpdatePreview();
         }
 
-        private void btnCreateDrawing_Click(object sender, EventArgs e)
+        private void btn_CreateDrawing_Click(object sender, EventArgs e)
         {
             if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
-                if (GUIProj != null && projFilesListBox.SelectedItem != null && ccbxExtensions.Text == "SLDPRT" || ccbxExtensions.Text == "SLDASM")
+                if (GUIProj != null && listBox_FileList.SelectedItem != null && comb_ExtentionList.Text == "SLDPRT" || comb_ExtentionList.Text == "SLDASM")
                 {
-                    PartAssySolidWorkstoOpen = projFilesListBox.SelectedItem.ToString();
+                    PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
                     pthDrwtoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
                     itmDrwtoOpen = GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
 
                     showProjectFiles("*.SLDDRW");
 
-                    if (projFilesListBox.Items.Contains(itmDrwtoOpen) == true)
+                    if (listBox_FileList.Items.Contains(itmDrwtoOpen) == true)
                     {
                         SolidWorksCreation.createSWDrawing(false);
                     }
@@ -199,7 +161,7 @@ namespace sPIke.SolidWorks.Standalone
                 ErrorHandler.errorMessageHandling(1);
             }
 
-            showProjectFiles("*." + ccbxExtensions.SelectedItem);
+            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
         }
 
         private void appAuthorToolStripMenuItem_Click(object sender, EventArgs e)
@@ -209,28 +171,22 @@ namespace sPIke.SolidWorks.Standalone
 
         private void btnFileListRefresh(object sender, EventArgs e)
         {
-            showProjectFiles("*." + ccbxExtensions.SelectedItem);
+            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
         }
 
-        private void btnAuthorSave_Click(object sender, EventArgs e)
-        {
-            AuthorName = txtbxAuthorName.Text;
-            pnlAuthorName.Hide();
 
-            authorNameToolStripMenuItem.BackColor = System.Drawing.Color.Gray;
-            authorNameToolStripMenuItem.Enabled = false;
-        }
 
-        private void btnPartAssySpecs_Click(object sender, EventArgs e)
+        private void btn_PartAssySpecs_Click(object sender, EventArgs e)
         {
+
             if (formManager.classManager.swManager.GetSolidWorksInstance())
             {
                 ErrorHandler.errorMessageHandling(3);
             }
             else if(GUI.GUIProj != null)
             {
-                extensionSolidWorks = ccbxExtensions.Text;
-                PartAssySolidWorkstoOpen = projFilesListBox.SelectedItem.ToString();
+                extensionSolidWorks = comb_ExtentionList.Text;
+                PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
 
                 SolidWorksCreation.openPartAssy();
             }
@@ -239,5 +195,53 @@ namespace sPIke.SolidWorks.Standalone
                 ErrorHandler.errorMessageHandling(1);
             }
         }
+   
+        private void btn_SaveUserName_Click(object sender, EventArgs e)
+        {
+            AuthorName = i_UserName.Text;
+            pnlAuthorName.Hide();
+
+            toolStripMenuItem_ConfigurationAuthorName.BackColor = System.Drawing.Color.Gray;
+            toolStripMenuItem_ConfigurationAuthorName.Enabled = false;
+
+        }
+
+    
+        private void UpdatePreview()
+        {
+
+            //string projFilePreview = GUI.pthProjFolder + "/" + projFilesListBox.SelectedItem.ToString();
+            string projFilePreview = "G:/Gedeelde drives/RTPI Projects/EXPO_201/12 T small pulley.SLDPRT";
+
+            //System.Drawing.Image.GetThumbnailImageAbort myCallback = new System.Drawing.Image.GetThumbnailImageAbort(ThumbnailCallback);
+            //System.Drawing.Bitmap myBitmap = new System.Drawing.Bitmap("Climber.jpg");
+            // System.Drawing.Image myThumbnail = myBitmap.GetThumbnailImage(
+            // 40, 40, myCallback, IntPtr.Zero);
+
+            //previewBox.Image = System.Drawing.Image.FromFile(projFilePreview);
+        }
+
+        private void GUI_Load(object sender, EventArgs e)
+        {
+
+            string[] extensions = new string[] { "PDF", "SLDPRT", "SLDASM", "STEP", "STL" };
+            comb_ExtentionList.Items.AddRange(extensions);
+            comb_ExtentionList.SelectedItem = extensions[0];
+            /*
+           //formManager.classManager.fileManager.loadProjectListGoogle();
+
+           if (formManager.classManager.fileManager.folstucProjects != null)
+           {
+               comb_ProjectList.DataSource = formManager.classManager.fileManager.folstucProjects;
+               toolStripMenuItem_ConfigurationProjectfolder.BackColor = System.Drawing.Color.Gray;
+               toolStripMenuItem_ConfigurationProjectfolder.Enabled = false;
+           }
+
+           pnlAuthorName.Hide();
+           */
+
+        }
     }
+
+
 }

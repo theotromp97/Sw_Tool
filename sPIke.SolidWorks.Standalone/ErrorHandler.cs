@@ -15,6 +15,8 @@ namespace sPIke.SolidWorks.Standalone
             classManager = _classManager;
         }
 
+        public enum MessageType {Error, Warning, Message};
+
         /// <summary>
         /// test code for errormessages
         /// </summary> 
@@ -59,6 +61,14 @@ namespace sPIke.SolidWorks.Standalone
             {
                 MessageBox.Show("Both part and assembly creation is openend and selected.", "PART/ASSEMBLY CREATION OPEN", 0, MessageBoxIcon.Stop);
             }
+        }
+        public static void GenerateMessage(MessageType type, string className, string methodName, string errorMessage)
+        {
+            string message = string.Format("{0} in {1}.{2} --> Message: {3}", type.ToString(), className, methodName, errorMessage);
+        }
+        public static void GenerateMessage(MessageType type, string className, string methodName)
+        {
+            string message = string.Format("{0} in {1}.{2}", type.ToString(), className, methodName);
         }
     }
 }
