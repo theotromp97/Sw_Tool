@@ -10,6 +10,8 @@ namespace sPIke.SolidWorks.Standalone
     public class FileManager
     {
         public ClassManager classManager;
+        public string currentProject;
+
         public object[] folstucProjects;
 
         private static string pth_ProjFol;
@@ -26,9 +28,9 @@ namespace sPIke.SolidWorks.Standalone
             classManager = classMngr;
         }
 
-        public string[] GetFileNames(string path, string fileType)
+        public string[] GetFileNames(string projectFolderPath, string projectFile, string fileType)
         {
-
+            string path = projectFolderPath + "/" + projectFile;
             DirectoryInfo fileDirectoryProj = new DirectoryInfo(path);
             FileInfo[] projFiles = fileDirectoryProj.GetFiles();
 

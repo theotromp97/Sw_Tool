@@ -12,6 +12,7 @@ namespace sPIke.SolidWorks.Standalone
         public string thisClassName = "ClassManager";
         public SolidworksManager swManager;
         public FileManager fileManager;
+        public UserManager userManager;
         public FormManager formManager;
         public ErrorHandler errorHandler;
         public ClassManager(Main _mainRef)
@@ -23,6 +24,7 @@ namespace sPIke.SolidWorks.Standalone
             {
                 swManager = new SolidworksManager(this);
                 fileManager = new FileManager(this);
+                userManager = new UserManager(this);
                 formManager = new FormManager(this);
                 errorHandler = new ErrorHandler(this);
             }

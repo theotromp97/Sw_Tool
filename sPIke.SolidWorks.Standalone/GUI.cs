@@ -10,11 +10,15 @@ namespace sPIke.SolidWorks.Standalone
     {
         public FormManager formManager;
         private string thisClassName = "GUI";
-        public static FileInfo projFiles;
 
-        public string currentProject;
 
-        private string authorName;
+
+        private enum Extentions
+        {
+            PDF, SLDPRT, SLDASM, STEP, STL
+        };
+        //public static FileInfo projFiles;
+
         public GUI(FormManager _formManager)
         {
             string thisMethodName = "Constructor";
@@ -34,7 +38,7 @@ namespace sPIke.SolidWorks.Standalone
             string thisMethodName = "toolStripMenuItem_New_SWCreate_Part_Click";
             try
             {
-                if (currentProject != null)
+                if (formManager.classManager.fileManager.currentProject != null)
                 {
                     formManager.show(formManager.formCreatePart);
                 }
@@ -43,7 +47,7 @@ namespace sPIke.SolidWorks.Standalone
                     ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "SolidWorks does not exist");
                     ErrorHandler.errorMessageHandling(3);
                 }
-                else if (authorName == null)
+                else if (formManager.classManager.userManager.UserName == null)
                 {
                     ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "Author does not exist");
                     ErrorHandler.errorMessageHandling(2);
@@ -65,7 +69,7 @@ namespace sPIke.SolidWorks.Standalone
             string thisMethodName = "toolStripMenuItem_New_SWCreate_Assembly_Click";
             try
             {
-                if (currentProject != null)
+                if (formManager.classManager.fileManager.currentProject != null)
                 {
                     formManager.show(formManager.formCreateAssembly);
                 }
@@ -74,7 +78,8 @@ namespace sPIke.SolidWorks.Standalone
                     ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "SolidWorks does not exist");
                     ErrorHandler.errorMessageHandling(3);
                 }
-                else if (authorName == null)
+                // test this
+                else if (formManager.classManager.userManager.UserName == null)
                 {
                     ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, "Author does not exist");
                     ErrorHandler.errorMessageHandling(2);
@@ -94,127 +99,231 @@ namespace sPIke.SolidWorks.Standalone
 
         private async void startInstanceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            await formManager.classManager.swManager.OpenSolidWorks();
-        }
+            string thisMethodName = "projectFolderToolStripMenuItem_Click";
+            try
+            {
+                await formManager.classManager.swManager.OpenSolidWorks();
+            }
+
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
+}
 
         private void exitInstanceToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            formManager.classManager.swManager.CloseSolidWorks();
-        }
+            string thisMethodName = "projectFolderToolStripMenuItem_Click";
 
-        private void projectFolderToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
-            projectfolderBrowsingDialog.ShowDialog();
-            formManager.classManager.fileManager.GetProjectFolder(projectfolderBrowsingDialog.SelectedPath);
-        }
-
-        private void showProjectFiles(string fileType)
-        {
-            listBox_FileList.Items.Clear();
-
-            DirectoryInfo fileDirectoryProj = new DirectoryInfo(pthProjFolder + "/" + comb_ProjectList.SelectedItem);
-            FileInfo[] projFiles = fileDirectoryProj.GetFiles(fileType);
-            string[] fileList = formManager.classManager.fileManager.GetFileNames(pthProjFolder + "/" + comb_ProjectList.SelectedItem, fileType);
-
-            if (fileList.Length > 0)
+            try
             {
-                listBox_FileList.Items.Add(fileList);
+                formManager.classManager.swManager.CloseSolidWorks();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
             }
         }
 
-        private void GUIProjList_SelectedIndexChanged(object sender, EventArgs e)
+        private void projectFolderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox_FileList.Items.Clear();
-            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
+            string thisMethodName = "projectFolderToolStripMenuItem_Click";
 
-            currentProject = comb_ProjectList.SelectedItem.ToString();
+            try { 
+                BrowsingDialog_ProjectFolder.ShowDialog();
+                formManager.classManager.fileManager.GetProjectFolder(BrowsingDialog_ProjectFolder.SelectedPath);
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
+        }
+
+        private void ShowProjectFiles()
+        {
+            string thisMethodName = "ShowProjectFiles";
+            try
+            {
+                listBox_FileList.Items.Clear();
+                //TODO
+                string[] fileList = formManager.classManager.fileManager.GetFileNames(formManager.classManager.fileManager.currentProject, comb_ProjectList.SelectedItem.ToString(), comb_ExtentionList.SelectedItem.ToString());
+
+                if (fileList.Length > 0)
+                {
+                    listBox_FileList.Items.Add(fileList);
+                    ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Message, thisClassName, thisMethodName, "Project files added successfully");
+                }
+
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Warning, thisClassName, thisMethodName, "No project files found");
+            }
+
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
+        }
+
+        private void comb_ProjectList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string thisMethodName = "comb_ProjectList_SelectedIndexChanged";
+            try
+            {
+                formManager.classManager.fileManager.currentProject = comb_ProjectList.SelectedItem.ToString();
+                ShowProjectFiles();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
         }
 
         private void comb_ExtensionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            listBox_FileList.Items.Clear();
-            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
+            string thisMethodName = "comb_ExtensionList_SelectedIndexChanged";
+            try
+            {
+                ShowProjectFiles();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
         }
 
         private void listBox_FileList_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            //UpdatePreview();
+            string thisMethodName = "listBox_FileList_SelectedIndexChanged";
+            try
+            {
+                //UpdatePreview();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
         }
 
+        // TODO
         private void btn_CreateDrawing_Click(object sender, EventArgs e)
         {
-            if (formManager.classManager.swManager.GetSolidWorksInstance())
+            string thisMethodName = "btn_CreateDrawing_Click";
+            try
             {
-                if (GUIProj != null && listBox_FileList.SelectedItem != null && comb_ExtentionList.Text == "SLDPRT" || comb_ExtentionList.Text == "SLDASM")
+                /*
+                if (formManager.classManager.swManager.GetSolidWorksInstance())
                 {
-                    PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
-                    pthDrwtoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
-                    itmDrwtoOpen = GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
-
-                    showProjectFiles("*.SLDDRW");
-
-                    if (listBox_FileList.Items.Contains(itmDrwtoOpen) == true)
+                    if (GUIProj != null && listBox_FileList.SelectedItem != null && comb_ExtentionList.Text == "SLDPRT" || comb_ExtentionList.Text == "SLDASM")
                     {
-                        SolidWorksCreation.createSWDrawing(false);
+                        PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
+                        pthDrwtoOpen = GUI.pthProjFolder + "\\" + GUI.GUIProj + "\\" + GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
+                        itmDrwtoOpen = GUI.PartAssySolidWorkstoOpen.Remove(GUI.PartAssySolidWorkstoOpen.Length - 7, 7) + ".SLDDRW";
+
+                        showProjectFiles("*.SLDDRW");
+
+                        if (listBox_FileList.Items.Contains(itmDrwtoOpen) == true)
+                        {
+                            SolidWorksCreation.createSWDrawing(false);
+                        }
+                        else
+                        {
+                            SolidWorksCreation.createSWDrawing(true);
+                        }
                     }
                     else
                     {
-                        SolidWorksCreation.createSWDrawing(true);
+                        ErrorHandler.errorMessageHandling(1);
                     }
                 }
                 else
                 {
                     ErrorHandler.errorMessageHandling(1);
                 }
+                */
             }
-            else
+            catch (Exception er)
             {
-                ErrorHandler.errorMessageHandling(1);
+
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
             }
 
-            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
+            //ShowProjectFiles();
         }
 
-        private void appAuthorToolStripMenuItem_Click(object sender, EventArgs e)
+        private void toolStripMenuItem_ConfigurationAuthorName_Click(object sender, EventArgs e)
         {
-            pnlAuthorName.Show();
+            string thisMethodName = "toolStripMenuItem_ConfigurationAuthorName_Click";
+            try
+            {
+                pnlAuthorName.Show();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
         }
 
         private void btnFileListRefresh(object sender, EventArgs e)
         {
-            showProjectFiles("*." + comb_ExtentionList.SelectedItem);
+            string thisMethodName = "btnFileListRefresh";
+            try
+            {
+
+            ShowProjectFiles();
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
+            
         }
 
-
-
-        private void btn_PartAssySpecs_Click(object sender, EventArgs e)
+        //TODO
+        private void btn_OpenSpecs_Click(object sender, EventArgs e)
         {
+            string thisMethodName = "btn_OpenSpecs_Click";
+            try
+            {
+                /*
+                if (formManager.classManager.swManager.GetSolidWorksInstance())
+                {
+                    ErrorHandler.errorMessageHandling(3);
+                }
+                else if (formManager.classManager.fileManager.currentProject != null)
+                {
+                    extensionSolidWorks = comb_ExtentionList.Text;
+                    PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
 
-            if (formManager.classManager.swManager.GetSolidWorksInstance())
-            {
-                ErrorHandler.errorMessageHandling(3);
+                    SolidWorksCreation.openPartAssy();
+                }
+                else
+                {
+                    ErrorHandler.errorMessageHandling(1);
+                }
+                */
             }
-            else if(GUI.GUIProj != null)
+            catch (Exception er)
             {
-                extensionSolidWorks = comb_ExtentionList.Text;
-                PartAssySolidWorkstoOpen = listBox_FileList.SelectedItem.ToString();
-
-                SolidWorksCreation.openPartAssy();
-            }
-            else
-            {
-                ErrorHandler.errorMessageHandling(1);
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
             }
         }
    
+
         private void btn_SaveUserName_Click(object sender, EventArgs e)
         {
-            AuthorName = i_UserName.Text;
-            pnlAuthorName.Hide();
+            string thisMethodName = "btn_SaveUserName_Click";
+            try
+            {
+                formManager.classManager.userManager.UserName = i_UserName.Text;
+                pnlAuthorName.Hide();
 
-            toolStripMenuItem_ConfigurationAuthorName.BackColor = System.Drawing.Color.Gray;
-            toolStripMenuItem_ConfigurationAuthorName.Enabled = false;
+                toolStripMenuItem_ConfigurationAuthorName.BackColor = System.Drawing.Color.Gray;
+                toolStripMenuItem_ConfigurationAuthorName.Enabled = false;
+
+            }
+            catch (Exception er)
+            {
+                ErrorHandler.GenerateMessage(ErrorHandler.MessageType.Error, thisClassName, thisMethodName, er.Message);
+            }
 
         }
 
@@ -236,9 +345,8 @@ namespace sPIke.SolidWorks.Standalone
         private void GUI_Load(object sender, EventArgs e)
         {
 
-            string[] extensions = new string[] { "PDF", "SLDPRT", "SLDASM", "STEP", "STL" };
-            comb_ExtentionList.Items.AddRange(extensions);
-            comb_ExtentionList.SelectedItem = extensions[0];
+            comb_ExtentionList.DataSource = Enum.GetValues(typeof(Extentions));
+            
             /*
            //formManager.classManager.fileManager.loadProjectListGoogle();
 

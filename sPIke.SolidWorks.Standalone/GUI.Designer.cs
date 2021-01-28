@@ -45,7 +45,7 @@
             this.toolStripMenuItem_Help = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.projectfolderBrowsingDialog = new System.Windows.Forms.FolderBrowserDialog();
+            this.BrowsingDialog_ProjectFolder = new System.Windows.Forms.FolderBrowserDialog();
             this.comb_ProjectList = new System.Windows.Forms.ComboBox();
             this.listBox_FileList = new System.Windows.Forms.ListBox();
             this.lbl_Project = new System.Windows.Forms.Label();
@@ -111,7 +111,7 @@
             this.toolStripMenuItem_ConfigurationSolidworksStartinstance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
             this.toolStripMenuItem_ConfigurationSolidworksStartinstance.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Name = "toolStripMenuItem_ConfigurationSolidworksStartinstance";
-            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Size = new System.Drawing.Size(150, 22);
             this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Text = "Start Instance";
             this.toolStripMenuItem_ConfigurationSolidworksStartinstance.Click += new System.EventHandler(this.startInstanceToolStripMenuItem1_Click);
             // 
@@ -120,7 +120,7 @@
             this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(49)))), ((int)(((byte)(47)))));
             this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.ForeColor = System.Drawing.Color.White;
             this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Name = "toolStripMenuItem_ConfigurationSolidworksCloseinstance";
-            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Size = new System.Drawing.Size(150, 22);
             this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Text = "Close Instance";
             this.toolStripMenuItem_ConfigurationSolidworksCloseinstance.Click += new System.EventHandler(this.exitInstanceToolStripMenuItem1_Click);
             // 
@@ -141,7 +141,7 @@
             this.toolStripMenuItem_ConfigurationAuthorName.Name = "toolStripMenuItem_ConfigurationAuthorName";
             this.toolStripMenuItem_ConfigurationAuthorName.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem_ConfigurationAuthorName.Text = "Author Name";
-            this.toolStripMenuItem_ConfigurationAuthorName.Click += new System.EventHandler(this.appAuthorToolStripMenuItem_Click);
+            this.toolStripMenuItem_ConfigurationAuthorName.Click += new System.EventHandler(this.toolStripMenuItem_ConfigurationAuthorName_Click);
             // 
             // toolStripMenuItem_New
             // 
@@ -245,7 +245,7 @@
             this.comb_ProjectList.Name = "comb_ProjectList";
             this.comb_ProjectList.Size = new System.Drawing.Size(236, 25);
             this.comb_ProjectList.TabIndex = 16;
-            this.comb_ProjectList.SelectedIndexChanged += new System.EventHandler(this.GUIProjList_SelectedIndexChanged);
+            this.comb_ProjectList.SelectedIndexChanged += new System.EventHandler(this.comb_ProjectList_SelectedIndexChanged);
             // 
             // listBox_FileList
             // 
@@ -399,7 +399,7 @@
             this.btn_OpenPartAssySpecs.TabIndex = 30;
             this.btn_OpenPartAssySpecs.Text = "Open SW Part/Assy Specifications";
             this.btn_OpenPartAssySpecs.UseVisualStyleBackColor = false;
-            this.btn_OpenPartAssySpecs.Click += new System.EventHandler(this.btn_PartAssySpecs_Click);
+            this.btn_OpenPartAssySpecs.Click += new System.EventHandler(this.btn_OpenSpecs_Click);
             // 
             // GUI
             // 
@@ -451,7 +451,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationSolidworksStartinstance;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationSolidworksCloseinstance;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem_ConfigurationProjectfolder;
-        private System.Windows.Forms.FolderBrowserDialog projectfolderBrowsingDialog;
+        private System.Windows.Forms.FolderBrowserDialog BrowsingDialog_ProjectFolder;
         private System.Windows.Forms.ComboBox comb_ProjectList;
         private System.Windows.Forms.ListBox listBox_FileList;
         private System.Windows.Forms.Label lbl_Project;
